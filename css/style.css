@@ -1,0 +1,35 @@
+*{
+  font-family: 'Eagle Lake', cursive;
+}
+
+video{
+  max-width: 90%;
+}
+
+h1{
+  text-align: center;
+}
+
+.video-container{
+  text-align: center;
+}
+
+#videonames {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+button {
+  font-family: 'Eagle Lake', cursive;
+  margin: 1rem;
+}
+
+#controls {
+  text-align: center;
+}
+
+i{
+  margin: 0 1rem;
+  cursor: pointer;
+}

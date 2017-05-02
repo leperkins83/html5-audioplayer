@@ -1,0 +1,24 @@
+{
+  "name": "html5-audioplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "live": "echo \"Web Server about to run\" && reload -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leperkins83/html5-audioplayer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leperkins83/html5-audioplayer/issues"
+  },
+  "homepage": "https://github.com/leperkins83/html5-audioplayer#readme",
+  "dependencies": {
+    "reload": "^1.1.3"
+  }
+}
